@@ -6,6 +6,8 @@ export default function Pumpjack() {
   const beam = useRef()
 
   useFrame(({ clock }) => {
+    if (!beam.current) return
+
     const t = clock.getElapsedTime()
     beam.current.rotation.z = Math.sin(t) * 0.2
   })
