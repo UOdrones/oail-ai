@@ -9,6 +9,7 @@ export default function Hero() {
       className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden px-6 pt-24 text-center"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      <div className="absolute left-1/2 top-12 h-[520px] w-[540px] -translate-x-1/2 -translate-y-10 rounded-full bg-gradient-to-b from-oailRed/50 via-oailRed/25 to-transparent blur-3xl" />
       <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
       <motion.div
