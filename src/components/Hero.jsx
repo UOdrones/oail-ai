@@ -1,8 +1,6 @@
 import React from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stage } from '@react-three/drei'
-import Pumpjack from '../three/Pumpjack'
 import { motion } from 'framer-motion'
+import logo from '../three/OAIL3.png'
 
 export default function Hero() {
   return (
@@ -10,26 +8,24 @@ export default function Hero() {
       id="hero"
       className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden px-6 pt-24 text-center"
     >
-      <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 1.6, 5], fov: 55 }}>
-          <ambientLight intensity={0.35} />
-          <directionalLight position={[5, 5, 5]} intensity={1.3} color={'#ff4d4d'} />
-          <Stage environment={null} intensity={0.4}>
-            <Pumpjack />
-          </Stage>
-          <OrbitControls enableZoom={false} enablePan={false} />
-        </Canvas>
-      </div>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
       <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: 'easeOut' }}
-        className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-8"
+        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-10"
       >
+        <motion.img
+          src={logo}
+          alt="OAIL.ai logo"
+          className="w-full max-w-[420px] drop-shadow-[0_0_45px_rgba(248,113,113,0.45)]"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        />
+
         <motion.span
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
