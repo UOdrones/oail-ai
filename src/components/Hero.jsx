@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import logo from '../three/OAIL3.png'
 
@@ -9,7 +8,7 @@ export default function Hero() {
       className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden px-6 pt-24 text-center"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
-      <div className="absolute left-1/2 top-12 h-[520px] w-[540px] -translate-x-1/2 -translate-y-10 rounded-full bg-gradient-to-b from-oailRed/50 via-oailRed/25 to-transparent blur-3xl" />
+      <div className="absolute left-1/2 top-0 h-[1480px] w-[1480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-oailRed/45 via-oailRed/20 to-transparent blur-[220px]" />
       <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
       <motion.div
@@ -18,14 +17,45 @@ export default function Hero() {
         transition={{ duration: 1.1, ease: 'easeOut' }}
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-10"
       >
-        <motion.img
-          src={logo}
-          alt="OAIL.ai logo"
-          className="w-full max-w-[420px] drop-shadow-[0_0_45px_rgba(248,113,113,0.45)]"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-        />
+        <div className="relative">
+          <motion.span
+            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-oailRed/35 via-transparent to-transparent blur-3xl"
+            animate={{ opacity: [0.6, 0.3, 0.6], scale: [1, 1.08, 1] }}
+            transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.span
+            className="absolute inset-0 -z-20 rounded-full bg-[radial-gradient(circle_at_center,_rgba(248,113,113,0.35),_transparent_55%)]"
+            animate={{ rotate: [0, 6, -4, 0], scale: [1, 1.04, 1] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          />
+          <motion.img
+            src={logo}
+            alt="OAIL.ai logo"
+            className="w-full max-w-[420px] drop-shadow-[0_0_50px_rgba(248,113,113,0.55)]"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{
+              opacity: 1,
+              scale: [1, 1.015, 0.985, 1],
+              rotate: [0, 0.6, -0.6, 0],
+              filter: [
+                'drop-shadow(0 0 60px rgba(248,113,113,0.75))',
+                'drop-shadow(0 0 95px rgba(239,68,68,0.8))',
+                'drop-shadow(0 0 70px rgba(248,113,113,0.6))'
+              ]
+            }}
+            transition={{
+              duration: 5.2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 0.25
+            }}
+          />
+          <motion.span
+            className="pointer-events-none absolute -inset-10 -z-30 rounded-full border border-oailRed/20"
+            animate={{ opacity: [0.35, 0.65, 0.35], scale: [0.92, 1.08, 0.92] }}
+            transition={{ duration: 7.6, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        </div>
 
         <motion.span
           initial={{ opacity: 0, scale: 0.9 }}
