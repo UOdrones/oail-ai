@@ -1,6 +1,68 @@
 import { motion } from 'framer-motion'
 import logo from '../three/OAIL3.png'
 
+const PumpjackFront = ({ className = '' }) => {
+  const beamTransition = { duration: 3.8, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }
+
+  return (
+    <motion.svg viewBox="0 0 400 300" className={`w-full ${className}`} fill="currentColor" aria-hidden="true">
+      <defs>
+        <linearGradient id="pumpGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(248,113,113,0.6)" />
+          <stop offset="100%" stopColor="rgba(127,29,29,0.2)" />
+        </linearGradient>
+      </defs>
+      <rect x="60" y="220" width="280" height="26" rx="6" opacity="0.85" />
+      <polygon points="120,220 170,120 206,120 156,220" opacity="0.9" />
+      <polygon points="220,220 260,132 292,132 252,220" opacity="0.9" />
+      <rect x="140" y="206" width="40" height="28" opacity="0.9" />
+      <rect x="272" y="190" width="34" height="44" opacity="0.85" />
+
+      <motion.g
+        initial={{ rotate: -10 }}
+        animate={{ rotate: 10 }}
+        transition={beamTransition}
+        style={{ transformOrigin: '206px 140px' }}
+      >
+        <rect x="134" y="132" width="200" height="18" rx="4" fill="url(#pumpGlow)" opacity="0.95" />
+        <polygon points="310,134 360,98 368,106 320,142" opacity="0.85" />
+        <polygon points="132,150 190,112 228,112 166,150" opacity="0.85" />
+
+        <motion.g
+          initial={{ rotate: -4 }}
+          animate={{ rotate: 6 }}
+          transition={beamTransition}
+          style={{ transformOrigin: '310px 142px' }}
+        >
+          <rect x="300" y="138" width="24" height="58" rx="4" opacity="0.85" />
+        </motion.g>
+      </motion.g>
+
+      <motion.g
+        initial={{ y: 0 }}
+        animate={{ y: -26 }}
+        transition={beamTransition}
+        style={{ transformOrigin: '330px 210px' }}
+      >
+        <rect x="318" y="168" width="36" height="48" rx="18" opacity="0.9" />
+        <circle cx="336" cy="188" r="12" fill="rgba(248,113,113,0.55)" />
+      </motion.g>
+
+      <motion.rect
+        x="310"
+        y="186"
+        width="10"
+        height="60"
+        rx="4"
+        initial={{ y: -10 }}
+        animate={{ y: 10 }}
+        transition={beamTransition}
+        opacity="0.8"
+      />
+    </motion.svg>
+  )
+}
+
 export default function Hero() {
   return (
     <section
@@ -12,6 +74,15 @@ export default function Hero() {
       <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
       <motion.div
+        className="absolute left-1/2 top-40 w-[620px] -translate-x-1/2 text-oailRed/70"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 0.75, scale: 1 }}
+        transition={{ duration: 1.4, ease: 'easeOut', delay: 0.2 }}
+      >
+        <PumpjackFront />
+      </motion.div>
+
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: 'easeOut' }}
@@ -19,41 +90,30 @@ export default function Hero() {
       >
         <div className="relative">
           <motion.span
-            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-oailRed/35 via-transparent to-transparent blur-3xl"
-            animate={{ opacity: [0.6, 0.3, 0.6], scale: [1, 1.08, 1] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.span
-            className="absolute inset-0 -z-20 rounded-full bg-[radial-gradient(circle_at_center,_rgba(248,113,113,0.35),_transparent_55%)]"
-            animate={{ rotate: [0, 6, -4, 0], scale: [1, 1.04, 1] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-oailRed/40 via-transparent to-transparent blur-3xl"
+            animate={{ opacity: [0.55, 0.2, 0.55], scale: [1, 1.1, 1] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.img
             src={logo}
             alt="OAIL.ai logo"
             className="w-full max-w-[420px] drop-shadow-[0_0_50px_rgba(248,113,113,0.55)]"
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{
               opacity: 1,
-              scale: [1, 1.015, 0.985, 1],
-              rotate: [0, 0.6, -0.6, 0],
+              scale: [1, 1.02, 0.99, 1],
               filter: [
-                'drop-shadow(0 0 60px rgba(248,113,113,0.75))',
-                'drop-shadow(0 0 95px rgba(239,68,68,0.8))',
-                'drop-shadow(0 0 70px rgba(248,113,113,0.6))'
+                'drop-shadow(0 0 55px rgba(248,113,113,0.75))',
+                'drop-shadow(0 0 105px rgba(239,68,68,0.85))',
+                'drop-shadow(0 0 65px rgba(248,113,113,0.55))'
               ]
             }}
             transition={{
-              duration: 5.2,
+              duration: 4.2,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: 0.25
             }}
-          />
-          <motion.span
-            className="pointer-events-none absolute -inset-10 -z-30 rounded-full border border-oailRed/20"
-            animate={{ opacity: [0.35, 0.65, 0.35], scale: [0.92, 1.08, 0.92] }}
-            transition={{ duration: 7.6, repeat: Infinity, ease: 'easeInOut' }}
           />
         </div>
 
