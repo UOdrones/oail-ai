@@ -121,9 +121,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90"
+          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
         >
-          Field Autonomy · AI-driven Energy
+          Artificial Intelligence for Energy
         </motion.span>
 
         <div className="space-y-6">
