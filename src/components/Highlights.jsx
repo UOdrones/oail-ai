@@ -1,45 +1,83 @@
 import { motion } from 'framer-motion'
 
-const DataWave = ({ delay = 0, className = '' }) => (
+const PumpJack = ({ delay = 0, className = '' }) => {
+  const swing = { duration: 3.4, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut', delay }
+
+  return (
+    <motion.svg
+      viewBox="0 0 200 140"
+      className={`h-32 w-48 text-black/90 ${className}`}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <rect x="18" y="110" width="164" height="20" rx="6" />
+      <polygon points="46,110 86,40 114,40 76,110" />
+      <polygon points="118,110 150,52 176,52 144,110" />
+      <rect x="32" y="94" width="26" height="24" />
+      <rect x="150" y="86" width="28" height="36" rx="6" />
+
+      <motion.g initial={{ rotate: -11 }} animate={{ rotate: 11 }} transition={swing} style={{ transformOrigin: '120px 60px' }}>
+        <rect x="72" y="54" width="120" height="16" rx="4" />
+        <polygon points="176,58 208,34 214,40 184,64" />
+        <polygon points="70,72 110,36 140,36 96,72" />
+
+        <motion.rect
+          x="174"
+          y="64"
+          width="14"
+          height="52"
+          rx="4"
+          initial={{ rotate: -6 }}
+          animate={{ rotate: 6 }}
+          transition={swing}
+        />
+      </motion.g>
+
+      <motion.g initial={{ y: 0 }} animate={{ y: -26 }} transition={swing}>
+        <rect x="184" y="72" width="28" height="46" rx="18" />
+        <circle cx="198" cy="92" r="10" fill="rgba(248,113,113,0.35)" />
+      </motion.g>
+      <motion.rect
+        x="178"
+        y="90"
+        width="10"
+        height="58"
+        rx="4"
+        initial={{ y: -8 }}
+        animate={{ y: 12 }}
+        transition={swing}
+      />
+    </motion.svg>
+  )
+}
+
+const DrillingRig = ({ delay = 0, className = '' }) => (
   <motion.svg
-    viewBox="0 0 200 160"
-    className={`h-36 w-48 text-black/70 ${className}`}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    strokeLinecap="round"
+    viewBox="0 0 180 160"
+    className={`h-36 w-44 text-black/80 ${className}`}
+    fill="currentColor"
     aria-hidden="true"
   >
-    <motion.path
-      d="M24 124 C62 46 138 46 176 124"
-      strokeOpacity="0.8"
-      strokeDasharray="6 12"
-      animate={{ strokeDashoffset: [0, -140] }}
-      transition={{ duration: 5.5, repeat: Infinity, ease: 'linear', delay }}
+    <polygon points="88,24 140,152 36,152" opacity="0.9" />
+    <rect x="22" y="146" width="140" height="14" rx="4" opacity="0.8" />
+    <motion.rect
+      x="78"
+      y="60"
+      width="20"
+      height="72"
+      rx="6"
+      animate={{ y: [54, 44, 54] }}
+      transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay }}
     />
-    <motion.path
-      d="M24 104 C68 32 132 32 176 104"
-      strokeOpacity="0.55"
-      strokeDasharray="10 16"
-      animate={{ strokeDashoffset: [0, 180] }}
-      transition={{ duration: 7.2, repeat: Infinity, ease: 'linear', delay: delay + 0.4 }}
-    />
-    <motion.circle
-      cx="100"
-      cy="56"
-      r="18"
-      strokeOpacity="0.6"
-      animate={{ scale: [1, 1.12, 1], opacity: [0.45, 0.9, 0.45] }}
-      transition={{ duration: 4.4, repeat: Infinity, ease: 'easeInOut', delay: delay + 0.2 }}
-    />
-    <motion.circle
-      cx="100"
-      cy="56"
-      r="8"
-      fill="rgba(248,113,113,0.45)"
-      stroke="none"
-      animate={{ scale: [1, 1.4, 1], opacity: [0.8, 0.3, 0.8] }}
-      transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut', delay: delay + 0.6 }}
+    <motion.rect
+      x="70"
+      y="126"
+      width="36"
+      height="14"
+      rx="6"
+      animate={{ y: [120, 130, 120] }}
+      transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay }}
+      opacity="0.85"
     />
   </motion.svg>
 )
@@ -97,9 +135,10 @@ export default function Highlights() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,115,115,0.28),_transparent_65%)]" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-        <div className="absolute inset-x-0 bottom-6 flex w-full items-end justify-center gap-24 opacity-85">
-          <DataWave delay={0.2} className="max-w-[260px]" />
-          <FlareStack delay={0.9} className="max-w-[200px]" />
+        <div className="absolute inset-x-0 bottom-6 flex w-full items-end justify-center gap-20 opacity-80">
+          <PumpJack delay={0} className="max-w-[220px]" />
+          <DrillingRig delay={0.5} className="max-w-[200px]" />
+          <FlareStack delay={1} className="max-w-[180px]" />
         </div>
       </div>
       <div className="relative z-10 mx-auto flex w-[min(92%,1100px)] flex-col gap-10 rounded-3xl border border-white/5 bg-black/30 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
