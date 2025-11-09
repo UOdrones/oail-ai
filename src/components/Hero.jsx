@@ -30,8 +30,8 @@ export default function Hero() {
             className="w-full max-w-[420px] drop-shadow-[0_0_50px_rgba(248,113,113,0.55)]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{
-              opacity: 1,
-              scale: [1, 1.05, 0.97, 1],
+              opacity: [1, 1, 1],
+              scale: [1, 1.05, 1],
               filter: [
                 'drop-shadow(0 0 55px rgba(248,113,113,0.75))',
                 'drop-shadow(0 0 105px rgba(239,68,68,0.85))',
@@ -41,6 +41,7 @@ export default function Hero() {
             transition={{
               duration: 3.6,
               repeat: Infinity,
+              repeatType: 'loop',
               ease: 'easeInOut',
               delay: 0.25
             }}
