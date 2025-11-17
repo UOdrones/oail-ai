@@ -7,7 +7,7 @@ export default function Hero() {
       id="hero"
       className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden px-6 pt-24 text-center"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/70 to-black/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/85" />
       <div className="absolute left-1/2 top-0 h-[1480px] w-[1480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-oailRed/45 via-oailRed/20 to-transparent blur-[220px]" />
       <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
 
