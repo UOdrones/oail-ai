@@ -1,0 +1,13 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OAIL logo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#36d1dc" />
+      <stop offset="100%" stop-color="#5b86e5" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="48" fill="url(#bg)" />
+  <path d="M78 86c0-18 14.5-32.5 32.5-32.5h34c18 0 32.5 14.5 32.5 32.5v84c0 18-14.5 32.5-32.5 32.5h-34C92.5 202.5 78 188 78 170V86Z" fill="#0b1120" fill-opacity="0.7" />
+  <path d="M96 94c0-12.15 9.85-22 22-22h20c12.15 0 22 9.85 22 22v68c0 12.15-9.85 22-22 22h-20c-12.15 0-22-9.85-22-22V94Z" stroke="#e8f5ff" stroke-width="10" fill="none" stroke-linecap="round" />
+  <circle cx="128" cy="72" r="16" fill="#e8f5ff" />
+  <path d="M120 128h16c9 0 16 7 16 16v24c0 9-7 16-16 16h-16c-9 0-16-7-16-16v-24c0-9 7-16 16-16Z" fill="#e8f5ff" fill-opacity="0.9" />
+</svg>
