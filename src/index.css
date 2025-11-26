@@ -14,12 +14,13 @@
   }
 
   body {
-    @apply bg-black text-gray-200 antialiased;
+    @apply bg-[#11151c] text-gray-200 antialiased;
     font-family: 'Space Grotesk', sans-serif;
     background:
-      radial-gradient(circle at top right, rgba(220, 38, 38, 0.16), transparent 48%),
-      radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.14), transparent 55%),
-      #0b0f12;
+      radial-gradient(circle at 28% 12%, rgba(220, 38, 38, 0.12), transparent 52%),
+      radial-gradient(circle at 82% 82%, rgba(56, 189, 248, 0.12), transparent 58%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 35%, rgba(0, 0, 0, 0.3)),
+      #1a1f27;
   }
 
   ::selection {
@@ -36,12 +37,31 @@
     content: '';
     position: absolute;
     inset: -200%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 80px 80px;
-    opacity: 0.25;
-    animation: grid-fade 18s linear infinite;
-    mask-image: radial-gradient(circle at center, black, transparent 70%);
+    background-color: rgba(17, 20, 27, 0.72);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 88px 88px;
+    opacity: 0.3;
+    animation: grid-fade 22s linear infinite;
+    mask-image: radial-gradient(circle at center, black, transparent 68%);
+  }
+
+  .bg-grid::after {
+    content: '';
+    position: absolute;
+    inset: -150%;
+    background-image:
+      radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 3px),
+      radial-gradient(circle, rgba(248, 113, 113, 0.16) 1.8px, transparent 3px),
+      radial-gradient(circle, rgba(56, 189, 248, 0.16) 1.6px, transparent 3px),
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 160px 160px, 220px 220px, 260px 260px, 88px 88px, 88px 88px;
+    background-position: 0 0, 20px 60px, 40px 120px, 0 0, 0 0;
+    opacity: 0.35;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.06));
+    animation: grid-fade 26s linear infinite reverse;
+    pointer-events: none;
   }
 
   .gradient-spot {
