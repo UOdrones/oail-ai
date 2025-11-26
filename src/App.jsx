@@ -8,6 +8,7 @@ import Process from './components/Process'
 import Vision from './components/Vision'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CircuitBackground from './components/CircuitBackground'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black text-gray-200">
+      <CircuitBackground />
       <div className="gradient-spot top-[-20%] left-[10%] h-96 w-96 bg-oailRed/40" />
       <div className="gradient-spot bottom-[-10%] right-[5%] h-[26rem] w-[26rem] bg-sky-500/30" />
       <div className="gradient-spot top-[40%] right-[45%] h-72 w-72 bg-amber-400/30" />

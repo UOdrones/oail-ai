@@ -79,6 +79,20 @@
     -webkit-background-clip: text;
     color: transparent;
   }
+
+  .circuit-line {
+    animation: signal-dash 5s linear infinite;
+  }
+
+  .circuit-node {
+    animation: node-pulse 3s ease-in-out infinite;
+  }
+
+  .shooting-spark {
+    filter: drop-shadow(0 0 16px rgba(248, 113, 113, 0.6));
+    animation: spark-glow 14s ease-in-out infinite;
+    opacity: 0.7;
+  }
 }
 
 @keyframes grid-fade {
@@ -87,5 +101,44 @@
   }
   to {
     transform: translate3d(0, 80px, 0);
+  }
+}
+
+@keyframes signal-dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -280;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 16px rgba(248, 113, 113, 0.55));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 26px rgba(56, 189, 248, 0.75));
+  }
+}
+
+@keyframes spark-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  12% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
   }
 }
