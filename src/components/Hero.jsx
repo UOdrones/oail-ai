@@ -18,6 +18,7 @@ export default function Hero() {
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-10"
       >
         <div className="relative">
+          <div className="pointer-events-none absolute inset-0 -z-20 mx-auto h-[520px] w-[620px] -translate-y-12 bg-[radial-gradient(circle_at_35%_40%,rgba(248,113,113,0.18),transparent_32%),radial-gradient(circle_at_65%_45%,rgba(59,130,246,0.18),transparent_34%),conic-gradient(from_120deg_at_50%_50%,rgba(255,255,255,0.08),rgba(255,255,255,0.04),rgba(248,113,113,0.08),rgba(59,130,246,0.06),rgba(255,255,255,0.05))] opacity-60 blur-3xl" />
           <motion.span
             className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-oailRed/40 via-transparent to-transparent blur-3xl"
             animate={{ opacity: [0.55, 0.2, 0.55], scale: [1, 1.1, 1] }}
