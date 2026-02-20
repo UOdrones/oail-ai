@@ -1,200 +1,285 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ═══════════════════════════════════════════
-   OAIL.ai Design System — All Black, All Red
-   ═══════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   OAIL.ai — TOP 0.02% DESIGN SYSTEM
+   Colors extracted from the chrome oil drop logo:
+   Chrome Silver: #C0C0C0 → #E5E7EB
+   OAIL Red: #CC0000
+   Deep Black: #000000
+   Circuit Dark: #0A0A0A
+   ═══════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
     color-scheme: dark;
+    --chrome: #d4d4d8;
+    --chrome-light: #e5e7eb;
     --oail-red: #cc0000;
-    --oail-red-glow: rgba(204, 0, 0, 0.6);
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --oail-red-bright: #ff1a1a;
+    --surface: #080808;
+    --surface-elevated: #0f0f0f;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-hover: rgba(204, 0, 0, 0.3);
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-black text-gray-200 antialiased;
-    font-family: 'Inter', 'Space Grotesk', sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #000;
+    color: #9ca3af;
+    overflow-x: hidden;
   }
 
   ::selection {
-    @apply bg-oailRed text-white;
+    background: rgba(204, 0, 0, 0.4);
+    color: #fff;
   }
 }
+
+/* ═══ PREMIUM UTILITIES ══════════════════════════════════ */
 
 @layer utilities {
 
-  /* ── Glassmorphism ───────────────────────── */
-  .glass {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px);
-    border-radius: 8px;
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(12px);
-    border-radius: 6px;
-    transition: all 0.3s ease;
-  }
-
-  .glass-card:hover {
-    border-color: rgba(204, 0, 0, 0.3);
-    box-shadow: 0 0 30px rgba(204, 0, 0, 0.08);
-    transform: translateY(-2px);
-  }
-
-  .glass-panel {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_40px_rgba(255, 0, 0, 0.12)];
-  }
-
-  /* ── Grid Patterns ──────────────────────── */
-  .bg-grid {
-    position: relative;
-  }
-
-  .bg-grid::before {
-    content: '';
-    position: absolute;
-    inset: -200%;
-    background-color: rgba(0, 0, 0, 0.9);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 88px 88px;
-    opacity: 0.3;
-    animation: grid-fade 22s linear infinite;
-    mask-image: radial-gradient(circle at center, black, transparent 68%);
-  }
-
-  .bg-grid::after {
-    content: '';
-    position: absolute;
-    inset: -150%;
-    background-image:
-      radial-gradient(circle, rgba(204, 0, 0, 0.1) 2px, transparent 3px),
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 160px 160px, 88px 88px, 88px 88px;
-    opacity: 0.3;
-    pointer-events: none;
-    animation: grid-fade 26s linear infinite reverse;
-  }
-
-  .gradient-spot {
-    position: absolute;
-    filter: blur(140px);
-    opacity: 0.3;
-  }
-
-  .gradient-text {
-    background: linear-gradient(90deg, #cc0000, #ff4444);
+  /* ── Chrome Gradient Text (from logo) ─────────────── */
+  .text-chrome {
+    background: linear-gradient(180deg, #e5e7eb 0%, #9ca3af 50%, #6b7280 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
   }
 
-  /* ── Scan Line Overlay ──────────────────── */
-  .scan-overlay::after {
+  .text-chrome-shine {
+    background: linear-gradient(135deg, #fff 0%, #d4d4d8 25%, #9ca3af 50%, #d4d4d8 75%, #fff 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: chrome-shift 6s ease infinite;
+  }
+
+  /* ── Glass (dark, premium) ────────────────────────── */
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(20px);
+  }
+
+  .glass-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-hover:hover {
+    border-color: var(--border-hover);
+    background: rgba(204, 0, 0, 0.03);
+    box-shadow: 0 0 60px rgba(204, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px);
+  }
+
+  /* ── Film Grain Overlay ───────────────────────────── */
+  .grain::after {
     content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.15) 2px,
-        rgba(0, 0, 0, 0.15) 4px);
+    position: fixed;
+    inset: -200%;
+    width: 400%;
+    height: 400%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 1;
+    z-index: 9999;
+    animation: grain-drift 8s steps(10) infinite;
+    opacity: 0.4;
   }
 
-  /* ── Particle Grid ──────────────────────── */
-  .particle-grid {
-    background-image: radial-gradient(circle, rgba(204, 0, 0, 0.15) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  /* ── Circuit Board Pattern ──────────────── */
-  .circuit-bg {
-    background-image:
-      linear-gradient(rgba(204, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(204, 0, 0, 0.05) 1px, transparent 1px),
-      radial-gradient(circle, rgba(204, 0, 0, 0.08) 1px, transparent 1px);
-    background-size: 60px 60px, 60px 60px, 30px 30px;
-  }
-
-  /* ── Glitch Text ────────────────────────── */
-  .glitch-text {
-    position: relative;
-    animation: glitch 3s infinite;
-  }
-
-  /* ── Neon Glow ──────────────────────────── */
-  .neon-red {
-    text-shadow:
-      0 0 7px rgba(204, 0, 0, 0.5),
-      0 0 20px rgba(204, 0, 0, 0.3),
-      0 0 42px rgba(204, 0, 0, 0.2);
-  }
-
-  /* ── Section Divider ────────────────────── */
-  .section-divider {
-    width: 100%;
+  /* ── Horizontal Rule ──────────────────────────────── */
+  .hr-glow {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.4), transparent);
+    background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.5), transparent);
+    border: none;
   }
 
-  /* ── Countdown Digits ───────────────────── */
+  /* ── Scroll-reveal fade ───────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Countdown ────────────────────────────────────── */
   .countdown-digit {
     font-variant-numeric: tabular-nums;
-    background: rgba(204, 0, 0, 0.08);
-    border: 1px solid rgba(204, 0, 0, 0.3);
-    box-shadow: 0 0 20px rgba(204, 0, 0, 0.15), inset 0 0 20px rgba(204, 0, 0, 0.05);
+    background: rgba(204, 0, 0, 0.06);
+    border: 1px solid rgba(204, 0, 0, 0.25);
+    box-shadow: 0 0 30px rgba(204, 0, 0, 0.08), inset 0 0 30px rgba(204, 0, 0, 0.03);
   }
 
-  /* ── Redacted Text ──────────────────────── */
-  .redacted-text {
-    background: linear-gradient(90deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.1));
-    color: rgba(204, 0, 0, 0.7);
-    padding: 2px 8px;
-    border-radius: 2px;
-    font-family: 'Orbitron', monospace;
+  /* ── Subtle scan line ─────────────────────────────── */
+  .scan-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.4), transparent);
+    animation: scan-down 8s linear infinite;
+    z-index: 2;
+    opacity: 0.3;
   }
 
-  /* ── Circuit Background Component ───────── */
-  .circuit-line {
-    animation: signal-dash 5s linear infinite;
+  /* ── Radial background ────────────────────────────── */
+  .bg-radial-red {
+    background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(204, 0, 0, 0.06) 0%, transparent 70%);
   }
 
-  .circuit-node {
-    animation: node-pulse 3s ease-in-out infinite;
+  /* ── Particle dots ────────────────────────────────── */
+  .particles {
+    background-image: radial-gradient(circle, rgba(204, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
-  .shooting-spark {
-    filter: drop-shadow(0 0 16px rgba(204, 0, 0, 0.6));
-    animation: spark-glow 14s ease-in-out infinite;
-    opacity: 0.7;
+  /* ── Border glow card ─────────────────────────────── */
+  .card-glow {
+    position: relative;
   }
 
-  /* ── Radial Gradient ────────────────────── */
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(204, 0, 0, 0.2), transparent 40%, transparent 60%, rgba(204, 0, 0, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
   }
 }
 
-/* ── Custom Scrollbar ─────────────────────── */
+/* ═══ KEYFRAMES ══════════════════════════════════════════ */
+
+@keyframes chrome-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes grain-drift {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-15%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -25%);
+  }
+
+  40% {
+    transform: translate(-5%, 25%);
+  }
+
+  50% {
+    transform: translate(-15%, 10%);
+  }
+
+  60% {
+    transform: translate(15%, 0%);
+  }
+
+  70% {
+    transform: translate(0%, 15%);
+  }
+
+  80% {
+    transform: translate(3%, 35%);
+  }
+
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+@keyframes scan-down {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.3;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ═══ SCROLLBAR ══════════════════════════════════════════ */
+
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -202,93 +287,15 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(204, 0, 0, 0.4);
-  border-radius: 3px;
+  background: rgba(204, 0, 0, 0.3);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(204, 0, 0, 0.7);
+  background: rgba(204, 0, 0, 0.6);
 }
 
-/* ═══════════════════════════════════════════
-   Keyframes
-   ═══════════════════════════════════════════ */
-
-@keyframes grid-fade {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    transform: translate3d(0, 80px, 0);
-  }
-}
-
-@keyframes signal-dash {
-  from {
-    stroke-dashoffset: 0;
-  }
-
-  to {
-    stroke-dashoffset: -280;
-  }
-}
-
-@keyframes node-pulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 16px rgba(204, 0, 0, 0.55));
-  }
-
-  50% {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 26px rgba(204, 0, 0, 0.75));
-  }
-}
-
-@keyframes spark-glow {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  12% {
-    opacity: 0.95;
-    transform: scale(1);
-  }
-
-  70% {
-    opacity: 0.8;
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes glitch {
-
-  0%,
-  100% {
-    transform: translate(0);
-  }
-
-  20% {
-    transform: translate(-2px, 2px);
-  }
-
-  40% {
-    transform: translate(-2px, -2px);
-  }
-
-  60% {
-    transform: translate(2px, 2px);
-  }
-
-  80% {
-    transform: translate(2px, -2px);
-  }
+/* ═══ SMOOTH SCROLL OFFSET FOR FIXED NAV ════════════════ */
+section[id] {
+  scroll-margin-top: 80px;
 }

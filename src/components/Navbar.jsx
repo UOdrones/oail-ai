@@ -1,47 +1,50 @@
 import { motion } from 'framer-motion'
 
-const links = [
-  { label: 'Intel', href: '#teaser' },
-  { label: 'About', href: '#about' },
-  { label: 'Team', href: '#team' },
-  { label: 'Coverage', href: '#coverage' },
-  { label: 'Stack', href: '#stack' },
-  { label: 'Contact', href: '#contact' }
-]
-
 export default function Navbar() {
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      className="pointer-events-auto fixed left-1/2 top-6 z-50 w-[min(92%,1100px)] -translate-x-1/2 rounded-full border border-white/10 bg-black/70 px-6 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl"
+      transition={{ duration: 0.6, delay: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 px-6 py-5"
     >
-      <div className="flex items-center justify-between gap-8">
-        <a href="#hero" className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-white">
-          <span className="h-2 w-2 rounded-full bg-oailRed shadow-[0_0_12px_rgba(204,0,0,0.9)]" />
-          OAIL.ai
+      <div className="max-w-5xl mx-auto flex items-center justify-between">
+        {/* Logo mark */}
+        <a href="#hero" className="flex items-center gap-3 group">
+          <span className="w-1.5 h-1.5 rounded-full bg-oailRed shadow-[0_0_8px_rgba(204,0,0,0.8)] group-hover:shadow-[0_0_16px_rgba(204,0,0,1)] transition-shadow" />
+          <span className="font-orbitron text-xs tracking-[0.3em] text-white/80 group-hover:text-white transition-colors">
+            OAIL
+          </span>
         </a>
 
-        <div className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.35em] text-gray-500 md:flex">
-          {links.map((link) => (
+        {/* Nav links — minimal, only essentials */}
+        <div className="hidden md:flex items-center gap-10 text-[10px] font-medium uppercase tracking-[0.35em] text-gray-600">
+          {[
+            { label: 'About', href: '#about' },
+            { label: 'Team', href: '#team' },
+            { label: 'Stack', href: '#stack' },
+          ].map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="transition hover:text-white hover:underline hover:decoration-oailRed/80 hover:decoration-2"
+              className="hover:text-white transition-colors duration-300"
             >
               {link.label}
             </a>
           ))}
         </div>
 
+        {/* CTA */}
         <a
           href="mailto:contact@oail.ai"
-          className="hidden rounded-full border border-oailRed/30 bg-oailRed/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-[0_0_25px_rgba(204,0,0,0.2)] transition hover:border-oailRed/60 hover:bg-oailRed/80 md:block"
+          className="text-[10px] font-orbitron tracking-[0.25em] text-gray-500 hover:text-oailRed transition-colors duration-300 uppercase"
         >
-          Launch Briefing
+          Contact
         </a>
       </div>
+
+      {/* Bottom border — barely there */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/[0.03]" />
     </motion.nav>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Teaser from './components/Teaser'
@@ -9,48 +10,64 @@ import Stack from './components/Stack'
 import Vision from './components/Vision'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import CircuitBackground from './components/CircuitBackground'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2800)
+    const timer = setTimeout(() => setLoading(false), 2400)
     return () => clearTimeout(timer)
   }, [])
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black text-gray-200">
-      <CircuitBackground />
-
-      {/* Subtle red gradient spots */}
-      <div className="gradient-spot top-[-20%] left-[10%] h-96 w-96 bg-oailRed/30" />
-      <div className="gradient-spot bottom-[-10%] right-[5%] h-[26rem] w-[26rem] bg-oailRed/15" />
-
-      <div className="relative z-10">
+    <div className="relative min-h-screen w-full bg-black text-gray-400 grain">
+      <AnimatePresence mode="wait">
         {loading ? (
-          /* ── Terminal Boot Sequence ─────────────────── */
-          <div className="flex h-screen flex-col items-center justify-center gap-6 text-center px-6">
-            <span className="font-orbitron text-xs uppercase tracking-[0.4em] text-oailRed/70 animate-pulse">
-              [ INITIALIZING FIELD INTELLIGENCE ]
-            </span>
-            <img
+          /* ── Cinematic Boot ─────────────────────────── */
+          <motion.div
+            key="loader"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Oil drop — small, pulsing */}
+            <motion.img
               src="/OAIL3.png"
               alt="OAIL"
-              className="w-24 md:w-32 h-auto opacity-60"
-              style={{ filter: 'drop-shadow(0 0 20px rgba(204,0,0,0.3))' }}
+              className="w-16 h-auto mb-6"
+              style={{
+                clipPath: 'inset(0 0 30% 0)',
+                filter: 'drop-shadow(0 0 20px rgba(204,0,0,0.3))',
+              }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: [0, 1, 0.6, 1], scale: 1 }}
+              transition={{ duration: 1.5 }}
             />
-            <div className="h-[2px] w-48 overflow-hidden rounded-full bg-white/5">
-              <div className="h-full w-full animate-pulse rounded-full bg-gradient-to-r from-oailRed/60 via-oailRed to-oailRed/60" />
+
+            {/* Loading bar */}
+            <div className="w-32 h-px bg-white/5 overflow-hidden rounded-full">
+              <motion.div
+                className="h-full bg-gradient-to-r from-oailRed/40 via-oailRed to-oailRed/40"
+                initial={{ x: '-100%' }}
+                animate={{ x: '200%' }}
+                transition={{ duration: 1.5, ease: 'easeInOut' }}
+              />
             </div>
-            <span className="font-inter text-[10px] tracking-[0.3em] text-gray-700">
-              OAIL.AI SYSTEMS v2.0
-            </span>
-          </div>
+
+            <p className="mt-4 font-orbitron text-[8px] tracking-[0.5em] text-gray-800 uppercase">
+              Initializing
+            </p>
+          </motion.div>
         ) : (
-          <div className="bg-grid">
+          /* ── Main Site ──────────────────────────────── */
+          <motion.div
+            key="site"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
             <Navbar />
-            <main className="relative flex flex-col pb-24">
+            <main>
               <Hero />
               <Teaser />
               <About />
@@ -61,9 +78,9 @@ export default function App() {
               <Contact />
             </main>
             <Footer />
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </div>
   )
 }

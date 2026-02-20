@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
+function Counter({ target, suffix = '+' }) {
     const [count, setCount] = useState(0)
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: '-100px' })
+    const inView = useInView(ref, { once: true, margin: '-100px' })
 
     useEffect(() => {
-        if (!isInView) return
+        if (!inView) return
         let start = 0
-        const increment = target / (duration / 16)
+        const step = target / 60
         const timer = setInterval(() => {
-            start += increment
+            start += step
             if (start >= target) {
                 setCount(target)
                 clearInterval(timer)
@@ -20,126 +20,123 @@ function AnimatedCounter({ target, suffix = '', duration = 2000 }) {
             }
         }, 16)
         return () => clearInterval(timer)
-    }, [isInView, target, duration])
+    }, [inView, target])
 
     return (
-        <span ref={ref} className="font-orbitron text-4xl md:text-6xl font-black text-white neon-red">
-            {count}{suffix}
+        <span ref={ref} className="font-orbitron text-5xl md:text-7xl font-black text-chrome-shine block">
+            {count}<span className="text-oailRed">{suffix}</span>
         </span>
     )
 }
 
-const credentials = [
-    {
-        years: 10,
-        label: 'PRODUCTION OPERATIONS',
-        desc: 'Wellsite supervision, artificial lift optimization, production facility management. We know what keeps the oil flowing.',
-        icon: '🛢️',
-    },
-    {
-        years: 21,
-        label: 'FRAC & COMPLETIONS',
-        desc: 'Hydraulic fracturing, well completion design, pressure pumping operations. Two decades of breaking rock and building wells.',
-        icon: '💥',
-    },
-    {
-        years: 20,
-        label: 'SERVICE SIDE O&G',
-        desc: 'Equipment logistics, field services, vendor management. The operational backbone that keeps every job on schedule.',
-        icon: '⚙️',
-    },
+const creds = [
+    { years: 10, role: 'Production Operations', desc: 'Wellsite supervision. Artificial lift. Production facilities. We know what keeps oil flowing because we\'ve done it.' },
+    { years: 21, role: 'Frac & Completions', desc: 'Hydraulic fracturing. Well completions. Pressure pumping. Two decades of breaking rock and building wells.' },
+    { years: 20, role: 'Service Side O&G', desc: 'Equipment logistics. Field services. Vendor management. The operational backbone that keeps every job on time.' },
 ]
+
+const techTeam = ['TARGET', 'SAMSUNG', 'DOD', 'FORTUNE 500']
 
 export default function TeamCred() {
     return (
-        <section id="team" className="relative py-24 md:py-32 px-6 bg-black circuit-bg" data-nosnippet>
-            <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
+        <section id="team" className="relative py-32 md:py-40 px-6">
+            <div className="max-w-5xl mx-auto">
+
+                {/* Section label */}
                 <motion.div
-                    className="text-center mb-20"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-4 mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
                 >
-                    <h2 className="font-orbitron text-xs tracking-[0.4em] text-oailRed mb-4 uppercase">
-            // Credentials
-                    </h2>
-                    <p className="font-orbitron text-2xl md:text-4xl font-bold text-white">
-                        Built by Operators.
-                        <br />
-                        <span className="text-oailRed">Engineered by Elite.</span>
-                    </p>
+                    <div className="w-8 h-px bg-oailRed/60" />
+                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+                        The Team
+                    </span>
                 </motion.div>
 
-                {/* Credential Pillars */}
-                <div className="grid md:grid-cols-3 gap-8 mb-20">
-                    {credentials.map((cred, i) => (
+                {/* Header */}
+                <motion.h2
+                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    Built by operators.<br />
+                    <span className="text-chrome">Engineered by elite.</span>
+                </motion.h2>
+
+                <motion.p
+                    className="text-gray-500 text-sm md:text-base max-w-lg mb-20 leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                >
+                    51+ combined years of field experience. A tech team that built for the world's most demanding organizations.
+                    This isn't a startup playing oil & gas. This is oil & gas building its own future.
+                </motion.p>
+
+                {/* Credential pillars */}
+                <div className="grid md:grid-cols-3 gap-6 mb-20">
+                    {creds.map((c, i) => (
                         <motion.div
                             key={i}
-                            className="glass-card p-8 text-center"
-                            initial={{ opacity: 0, y: 40 }}
+                            className="glass glass-hover card-glow rounded-xl p-8 text-center"
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.2, duration: 0.7 }}
+                            transition={{ delay: i * 0.15, duration: 0.6 }}
                         >
-                            <span className="text-3xl block mb-4">{cred.icon}</span>
-                            <AnimatedCounter target={cred.years} suffix="+" />
-                            <p className="font-orbitron text-[10px] md:text-xs tracking-[0.25em] text-oailRed mt-3 mb-4 uppercase">
-                                YEARS
-                            </p>
-                            <h3 className="font-orbitron text-sm tracking-wider text-white mb-3 font-semibold uppercase">
-                                {cred.label}
+                            <Counter target={c.years} />
+                            <p className="font-orbitron text-[8px] tracking-[0.3em] text-oailRed/60 mt-3 mb-4 uppercase">Years</p>
+                            <h3 className="font-orbitron text-xs tracking-[0.2em] text-white mb-4 uppercase font-semibold">
+                                {c.role}
                             </h3>
-                            <p className="text-gray-500 text-sm leading-relaxed">
-                                {cred.desc}
-                            </p>
+                            <p className="text-gray-500 text-sm leading-relaxed">{c.desc}</p>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Tech Team Callout */}
+                {/* Tech team */}
                 <motion.div
-                    className="glass p-8 md:p-12 text-center relative overflow-hidden"
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    className="glass rounded-xl p-10 md:p-14 text-center relative overflow-hidden"
+                    initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.6 }}
                 >
-                    {/* Background accent */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-oailRed/5 via-transparent to-oailRed/5" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-oailRed/40 to-transparent" />
 
-                    <div className="relative z-10">
-                        <h3 className="font-orbitron text-xs tracking-[0.3em] text-gray-500 mb-4 uppercase">
-                            The Tech Team
-                        </h3>
-                        <p className="font-inter text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
-                            Our engineers built enterprise applications for
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-6">
-                            {['TARGET', 'SAMSUNG', 'DOD', 'AND MORE'].map((name, i) => (
-                                <motion.div
-                                    key={name}
-                                    className="px-5 py-2 border border-gray-700 rounded font-orbitron text-xs md:text-sm tracking-wider text-white hover:border-oailRed hover:text-oailRed transition-all duration-300"
-                                    initial={{ opacity: 0, x: -20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.5 + i * 0.15 }}
-                                >
-                                    {name}
-                                </motion.div>
-                            ))}
-                        </div>
-                        <p className="text-gray-500 text-sm max-w-xl mx-auto">
-                            Now they're building the most advanced AI platform the oil &amp; gas industry has ever seen.
-                            <span className="text-oailRed"> No pressure.</span>
-                        </p>
+                    <p className="font-orbitron text-[9px] tracking-[0.4em] text-gray-600 uppercase mb-4">
+                        Engineering Pedigree
+                    </p>
+                    <p className="text-gray-300 text-base md:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+                        Our engineers built enterprise applications for
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
+                        {techTeam.map((name, i) => (
+                            <motion.span
+                                key={name}
+                                className="px-5 py-2.5 rounded-lg border border-white/10 font-orbitron text-[10px] md:text-xs tracking-[0.2em] text-white/80 hover:border-oailRed/40 hover:text-oailRed transition-all duration-300"
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.4 + i * 0.1 }}
+                            >
+                                {name}
+                            </motion.span>
+                        ))}
                     </div>
+
+                    <p className="text-gray-600 text-sm max-w-md mx-auto">
+                        Now they're building the most advanced AI platform the energy industry has ever seen.
+                    </p>
                 </motion.div>
             </div>
 
-            {/* Section divider */}
-            <div className="section-divider mt-24" />
+            <div className="hr-glow mt-32 mx-auto w-1/2" />
         </section>
     )
 }

@@ -5,141 +5,127 @@ import Countdown from './Countdown'
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Absolute black base */}
+      {/* Pure black canvas */}
       <div className="absolute inset-0 bg-black" />
 
-      {/* Subtle radial glow behind drop */}
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse 60% 50% at 50% 40%, rgba(204,0,0,0.08) 0%, transparent 70%)'
-      }} />
+      {/* Radial red atmosphere — subtle, like heat from the earth */}
+      <div className="absolute inset-0 bg-radial-red" />
 
-      {/* Particle grid */}
-      <div className="absolute inset-0 particle-grid opacity-10" />
+      {/* Particle field */}
+      <div className="absolute inset-0 particles opacity-30" />
+
+      {/* Vertical accent lines — Swiss grid energy */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-[20%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
+        <div className="absolute left-[80%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
+        <div className="absolute left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-red-900/10 to-transparent" />
+      </div>
 
       {/* Content */}
-      <motion.div
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-20 pb-16"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {/* ═══ THE OIL DROP ═══
-             Just the chrome droplet — no text baked in.
-             We render all typography as HTML for full control. */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 w-full max-w-5xl mx-auto">
+
+        {/* ═══ CHROME OIL DROP — Cinematic Scale ═══ */}
         <motion.div
-          className="relative mb-8"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="relative mb-6"
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Glow halo behind the drop */}
+          {/* Pulse ring behind drop */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <motion.div
-              className="w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full"
+            <div
+              className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full"
               style={{
-                background: 'radial-gradient(circle, rgba(204,0,0,0.15) 0%, transparent 70%)',
+                background: 'radial-gradient(circle, rgba(204,0,0,0.12) 0%, transparent 70%)',
+                animation: 'pulse-ring 3s ease-out infinite',
               }}
-              animate={{
-                scale: [1, 1.15, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
             />
           </div>
 
-          {/* The logo image — cropped to show mainly the oil drop */}
-          <motion.img
+          {/* Oil drop — clipped to just the icon */}
+          <img
             src="/OAIL3.png"
             alt="OAIL"
-            className="relative z-10 w-52 md:w-72 lg:w-80 h-auto"
+            className="relative z-10 w-44 md:w-56 lg:w-64 h-auto"
             style={{
-              maxWidth: '85vw',
-              filter: 'drop-shadow(0 0 40px rgba(204,0,0,0.3))',
-              /* Clip the bottom text portion of the logo since we render it ourselves */
-              clipPath: 'inset(0 0 28% 0)',
-              marginBottom: '-8%',
+              filter: 'drop-shadow(0 0 60px rgba(204,0,0,0.25)) drop-shadow(0 20px 40px rgba(0,0,0,0.8))',
+              clipPath: 'inset(0 0 30% 0)',
+              marginBottom: '-10%',
             }}
-            animate={{
-              filter: [
-                'drop-shadow(0 0 30px rgba(204,0,0,0.3))',
-                'drop-shadow(0 0 50px rgba(204,0,0,0.6))',
-                'drop-shadow(0 0 30px rgba(204,0,0,0.3))',
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
           />
         </motion.div>
 
-        {/* ═══ TYPOGRAPHY — rendered as HTML for readability ═══ */}
-
-        {/* Brand name */}
-        <motion.h1
-          className="font-orbitron text-5xl md:text-7xl lg:text-8xl font-black tracking-[0.15em] text-white mb-2"
+        {/* ═══ BRAND — Massive, editorial ═══ */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          style={{
-            textShadow: '0 0 40px rgba(204,0,0,0.3), 0 0 80px rgba(204,0,0,0.15)',
-          }}
+          transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-3"
         >
-          <span className="text-white">O</span>
-          <span className="text-oailRed">A</span>
-          <span className="text-white">I</span>
-          <span className="text-white">L</span>
-        </motion.h1>
+          <h1 className="font-orbitron text-6xl md:text-8xl lg:text-[120px] font-black tracking-[0.08em] leading-none">
+            <span className="text-chrome-shine">O</span>
+            <span className="text-oailRed" style={{ textShadow: '0 0 60px rgba(204,0,0,0.4)' }}>A</span>
+            <span className="text-chrome-shine">I</span>
+            <span className="text-chrome-shine">L</span>
+          </h1>
+        </motion.div>
 
-        {/* Tagline */}
+        {/* Tagline — spaced, authoritative */}
         <motion.p
-          className="font-orbitron text-[10px] md:text-xs tracking-[0.5em] text-gray-400 uppercase mb-10"
+          className="font-orbitron text-[9px] md:text-[11px] tracking-[0.6em] text-gray-500 uppercase mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 1 }}
         >
           Artificial Intelligence for Energy
         </motion.p>
 
-        {/* Divider line */}
+        {/* Thin red line */}
         <motion.div
-          className="w-16 h-[1px] bg-gradient-to-r from-transparent via-oailRed to-transparent mb-10"
+          className="hr-glow w-20 mb-10"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1, duration: 0.6 }}
         />
 
-        {/* Bold statement */}
+        {/* The statement — FOMO starts here */}
         <motion.p
-          className="text-gray-500 text-sm md:text-base max-w-lg mb-14 font-inter tracking-wide leading-relaxed"
-          initial={{ opacity: 0, y: 15 }}
+          className="text-sm md:text-base max-w-md mb-4 leading-relaxed tracking-wide"
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
         >
-          The future of energy runs on intelligence.
-          <span className="text-white font-medium"> We're building it.</span>
+          <span className="text-gray-500">The most advanced AI platform the energy industry has ever seen.</span>
         </motion.p>
 
-        {/* Countdown */}
+        <motion.p
+          className="text-white text-base md:text-lg font-medium mb-14 tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+        >
+          And you're early.
+        </motion.p>
+
+        {/* Countdown — the FOMO machine */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
         >
           <Countdown />
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ delay: 3 }}
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-[1px] h-8 bg-gradient-to-b from-oailRed/60 to-transparent" />
-          <span className="font-orbitron text-[7px] tracking-[0.4em] text-gray-700 mt-2 block">SCROLL</span>
+        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+          <div className="w-px h-10 bg-gradient-to-b from-oailRed/40 to-transparent" />
         </motion.div>
       </motion.div>
     </section>

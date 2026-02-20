@@ -1,30 +1,30 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const teasers = [
+const intel = [
+    {
+        icon: '⬡',
+        codename: 'PROJECT OVERWATCH',
+        hint: 'Autonomous aerial intelligence that sees what humans can\'t. Every well. Every pipeline. Every threat.',
+        status: 'ACTIVE DEVELOPMENT',
+    },
     {
         icon: '◉',
-        title: 'Autonomous Eyes in the Sky',
-        hint: 'AI-driven aerial intelligence that sees what humans can\'t.',
-        hidden: 'Q3YyNC83IGRyb25lIGFuYWx5dGljcyBwbGF0Zm9ybQ==',
+        codename: 'PROJECT SENTINEL',
+        hint: '24/7 autonomous monitoring. Real-time anomaly detection. Zero-latency response. No human in the loop.',
+        status: 'FIELD TESTING',
     },
     {
         icon: '⟁',
-        title: 'Intelligence That Never Sleeps',
-        hint: '24/7 autonomous monitoring. Zero downtime. Zero excuses.',
-        hidden: 'UmVhbC10aW1lIHByb2R1Y3Rpb24gQUk=',
-    },
-    {
-        icon: '⬡',
-        title: 'The Field, Reimagined',
-        hint: 'Every well. Every pad. Every decision. Transformed.',
-        hidden: 'T3BlcmF0aW9ucyBvcHRpbWl6YXRpb24gZW5naW5l',
+        codename: 'PROJECT NEXUS',
+        hint: 'Full-stack data intelligence. Wellhead to boardroom. Sensor to C-suite. One unified nervous system.',
+        status: 'ARCHITECTURE COMPLETE',
     },
     {
         icon: '◈',
-        title: 'Wellhead to Boardroom',
-        hint: 'Full-stack data intelligence from sensor to C-suite.',
-        hidden: 'RW5kLXRvLWVuZCBkYXRhIHBpcGVsaW5l',
+        codename: 'PROJECT GENESIS',
+        hint: 'The platform that makes every other platform obsolete. We\'re not iterating. We\'re replacing.',
+        status: 'CLASSIFIED',
     },
 ]
 
@@ -32,81 +32,117 @@ export default function Teaser() {
     const [hoveredIndex, setHoveredIndex] = useState(null)
 
     return (
-        <section id="teaser" className="relative py-24 md:py-32 px-6 bg-black" data-nosnippet>
-            <div className="max-w-6xl mx-auto">
-                {/* Section Header */}
+        <section id="teaser" className="relative py-32 md:py-40 px-6" data-nosnippet>
+            <div className="max-w-5xl mx-auto">
+
+                {/* Section label */}
                 <motion.div
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
+                    className="flex items-center gap-4 mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <div className="w-8 h-px bg-oailRed/60" />
+                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+                        Classified Intelligence
+                    </span>
+                </motion.div>
+
+                {/* Header */}
+                <motion.h2
+                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight"
+                    initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="font-orbitron text-xs tracking-[0.4em] text-oailRed mb-4 uppercase">
-            // Classified Preview
-                    </h2>
-                    <p className="font-orbitron text-2xl md:text-4xl font-bold text-white">
-                        What's Coming
-                    </p>
-                    <p className="text-gray-500 mt-3 text-sm max-w-lg mx-auto">
-                        We can't tell you everything. Not yet. But here's enough to keep you up at night.
-                    </p>
-                </motion.div>
+                    Four projects.<br />
+                    <span className="text-chrome">Zero precedent.</span>
+                </motion.h2>
 
-                {/* Teaser Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
-                    {teasers.map((t, i) => (
+                <motion.p
+                    className="text-gray-500 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                    We can't tell you everything. Not yet. But here's enough to know you don't want to be on the wrong side of this.
+                </motion.p>
+
+                {/* Intel Grid */}
+                <div className="grid md:grid-cols-2 gap-4">
+                    {intel.map((item, i) => (
                         <motion.div
                             key={i}
-                            className="glass-card p-8 cursor-pointer relative overflow-hidden group"
+                            className="glass glass-hover card-glow rounded-xl p-8 cursor-default relative overflow-hidden"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.15, duration: 0.6 }}
+                            transition={{ delay: i * 0.1, duration: 0.6 }}
                             onMouseEnter={() => setHoveredIndex(i)}
                             onMouseLeave={() => setHoveredIndex(null)}
                         >
-                            {/* Icon */}
-                            <span className="text-3xl text-oailRed block mb-4 group-hover:animate-glitch">
-                                {t.icon}
-                            </span>
+                            {/* Status badge */}
+                            <div className="flex items-center justify-between mb-6">
+                                <span className="text-2xl">{item.icon}</span>
+                                <span className="font-orbitron text-[7px] tracking-[0.3em] text-oailRed/50 uppercase px-3 py-1 rounded-full border border-oailRed/15">
+                                    {item.status}
+                                </span>
+                            </div>
 
-                            {/* Title */}
-                            <h3 className="font-orbitron text-lg md:text-xl text-white mb-3 font-semibold">
-                                {t.title}
+                            {/* Codename */}
+                            <h3 className="font-orbitron text-sm md:text-base text-white mb-3 tracking-[0.15em] font-semibold uppercase">
+                                {item.codename}
                             </h3>
 
-                            {/* Hint Text */}
-                            <p className="text-gray-400 text-sm leading-relaxed">
-                                {t.hint}
+                            {/* Description */}
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                                {item.hint}
                             </p>
 
-                            {/* Hover Reveal - glitch flash */}
+                            {/* Hover overlay */}
                             {hoveredIndex === i && (
                                 <motion.div
-                                    className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+                                    className="absolute inset-0 flex items-center justify-center bg-black/85 backdrop-blur-sm rounded-xl"
                                     initial={{ opacity: 0 }}
-                                    animate={{ opacity: [0, 1, 0.8, 1] }}
-                                    transition={{ duration: 0.3 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.2 }}
                                 >
-                                    <p className="font-orbitron text-xs tracking-[0.2em] text-oailRed">
-                                        [ FULL REVEAL: MAY 18 ]
-                                    </p>
+                                    <div className="text-center">
+                                        <p className="font-orbitron text-[10px] tracking-[0.3em] text-oailRed mb-1">
+                                            [ FULL REVEAL ]
+                                        </p>
+                                        <p className="font-orbitron text-xs tracking-[0.2em] text-white">
+                                            MAY 18, 2026
+                                        </p>
+                                    </div>
                                 </motion.div>
                             )}
 
                             {/* Corner accent */}
-                            <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
-                                <div className="absolute top-0 right-0 w-[1px] h-8 bg-gradient-to-b from-oailRed/50 to-transparent" />
-                                <div className="absolute top-0 right-0 h-[1px] w-8 bg-gradient-to-l from-oailRed/50 to-transparent" />
+                            <div className="absolute top-0 right-0">
+                                <div className="w-px h-6 bg-gradient-to-b from-oailRed/30 to-transparent absolute top-0 right-4" />
+                                <div className="h-px w-6 bg-gradient-to-l from-oailRed/30 to-transparent absolute top-4 right-0" />
                             </div>
                         </motion.div>
                     ))}
                 </div>
+
+                {/* FOMO note */}
+                <motion.p
+                    className="text-center text-gray-700 text-xs mt-12 font-orbitron tracking-[0.3em] uppercase"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                >
+                    Early access is not guaranteed
+                </motion.p>
             </div>
 
-            {/* Section divider */}
-            <div className="section-divider mt-24" />
+            <div className="hr-glow mt-32 mx-auto w-1/2" />
         </section>
     )
 }

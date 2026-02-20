@@ -3,62 +3,97 @@ import { motion } from 'framer-motion'
 const stack = [
   {
     name: 'Unmanned Operator',
-    desc: 'Autonomous drone fleets capturing HD inspection data with AI-guided flight paths.',
-    badge: 'Aerial Intelligence'
+    desc: 'Autonomous drone fleets with AI-guided flight paths. HD inspection data captured, processed, and actioned — without a pilot.',
+    badge: 'Aerial Intelligence',
   },
   {
     name: 'Operra.ai',
-    desc: 'Predictive logistics, pad scheduling, and resource orchestration tuned to each basin.',
-    badge: 'Operations Engine'
+    desc: 'Predictive logistics, pad scheduling, and resource orchestration. Tuned to each basin. Smarter every cycle.',
+    badge: 'Operations Engine',
   },
   {
     name: 'ROWi.ai',
-    desc: 'Automated right-of-way compliance with change detection, vegetation tracking, and alerting.',
-    badge: 'ROW Intelligence'
+    desc: 'Automated right-of-way compliance. Change detection. Vegetation tracking. Alerting before violations happen.',
+    badge: 'ROW Intelligence',
   },
   {
     name: 'Edge Operator',
-    desc: 'Offline-resilient inference nodes monitoring production sites with real-time anomaly detection.',
-    badge: 'Edge Autonomy'
-  }
+    desc: 'Offline-resilient inference at the wellsite. Real-time anomaly detection even when connectivity is zero.',
+    badge: 'Edge Autonomy',
+  },
 ]
 
 export default function Stack() {
   return (
-    <section id="stack" className="px-6">
-      <div className="mx-auto flex w-[min(92%,1100px)] flex-col gap-10">
-        <div className="flex flex-col gap-4 text-center md:text-left">
-          <p className="text-xs uppercase tracking-[0.35em] text-oailRed/80">Our Intelligence Stack</p>
-          <h2 className="text-3xl font-semibold text-white md:text-4xl">Coordinated modules designed to work as one</h2>
-          <p className="text-sm text-gray-400 md:max-w-2xl">
-            Each product is deployable individually, but together they operate as an adaptive energy intelligence
-            backbone—scaling from aerial capture to edge automation and enterprise control.
-          </p>
-        </div>
+    <section id="stack" className="relative py-32 md:py-40 px-6">
+      <div className="max-w-5xl mx-auto">
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {stack.map((s, index) => (
+        {/* Section label */}
+        <motion.div
+          className="flex items-center gap-4 mb-6"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-8 h-px bg-oailRed/60" />
+          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+            Intelligence Stack
+          </span>
+        </motion.div>
+
+        {/* Header */}
+        <motion.h2
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Four modules.<br />
+          <span className="text-chrome">One neural core.</span>
+        </motion.h2>
+
+        <motion.p
+          className="text-gray-500 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          Each product is deployable solo. Together, they operate as an adaptive energy intelligence backbone
+          — scaling from aerial capture to edge autonomy.
+        </motion.p>
+
+        {/* Stack grid */}
+        <div className="grid md:grid-cols-2 gap-4">
+          {stack.map((s, i) => (
             <motion.div
               key={s.name}
-              initial={{ opacity: 0, y: 24 }}
+              className="glass glass-hover card-glow rounded-xl p-8 relative"
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black/40 via-black/60 to-black/90 p-8"
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
-              <div className="relative space-y-4">
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-gray-300">
-                  {s.badge}
-                </span>
-                <h3 className="text-2xl font-semibold text-white">{s.name}</h3>
-                <p className="text-sm text-gray-300">{s.desc}</p>
-                <div className="pt-4 text-xs uppercase tracking-[0.35em] text-oailRed/80">Integrated with OAIL Neural Core</div>
+              <span className="font-orbitron text-[7px] tracking-[0.3em] text-oailRed/50 uppercase px-3 py-1 rounded-full border border-oailRed/15 mb-6 inline-block">
+                {s.badge}
+              </span>
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{s.name}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.desc}</p>
+              <p className="font-orbitron text-[7px] tracking-[0.2em] text-gray-700 uppercase">
+                Integrated with OAIL Neural Core
+              </p>
+
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0">
+                <div className="w-px h-6 bg-gradient-to-b from-oailRed/20 to-transparent absolute top-0 right-4" />
+                <div className="h-px w-6 bg-gradient-to-l from-oailRed/20 to-transparent absolute top-4 right-0" />
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      <div className="hr-glow mt-32 mx-auto w-1/2" />
     </section>
   )
 }
