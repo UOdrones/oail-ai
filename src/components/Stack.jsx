@@ -25,7 +25,7 @@ const stack = [
 
 export default function Stack() {
   return (
-    <section id="stack" className="relative py-32 md:py-40 px-6">
+    <section id="stack" className="relative py-32 md:py-40 px-6 surface-alt">
       <div className="max-w-5xl mx-auto">
 
         {/* Section label */}
@@ -36,7 +36,7 @@ export default function Stack() {
           viewport={{ once: true }}
         >
           <div className="w-8 h-px bg-oailRed/60" />
-          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
             Intelligence Stack
           </span>
         </motion.div>
@@ -53,7 +53,7 @@ export default function Stack() {
         </motion.h2>
 
         <motion.p
-          className="text-gray-500 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
+          className="text-gray-400 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -74,19 +74,19 @@ export default function Stack() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
             >
-              <span className="font-orbitron text-[7px] tracking-[0.3em] text-oailRed/50 uppercase px-3 py-1 rounded-full border border-oailRed/15 mb-6 inline-block">
+              <span className="font-orbitron text-[7px] tracking-[0.3em] text-oailRed/70 uppercase px-3 py-1 rounded-full border border-oailRed/20 mb-6 inline-block">
                 {s.badge}
               </span>
               <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">{s.name}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">{s.desc}</p>
-              <p className="font-orbitron text-[7px] tracking-[0.2em] text-gray-700 uppercase">
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">{s.desc}</p>
+              <p className="font-orbitron text-[7px] tracking-[0.2em] text-gray-500 uppercase">
                 Integrated with OAIL Neural Core
               </p>
 
               {/* Corner accent */}
               <div className="absolute top-0 right-0">
-                <div className="w-px h-6 bg-gradient-to-b from-oailRed/20 to-transparent absolute top-0 right-4" />
-                <div className="h-px w-6 bg-gradient-to-l from-oailRed/20 to-transparent absolute top-4 right-0" />
+                <div className="w-px h-6 bg-gradient-to-b from-oailRed/30 to-transparent absolute top-0 right-4" />
+                <div className="h-px w-6 bg-gradient-to-l from-oailRed/30 to-transparent absolute top-4 right-0" />
               </div>
             </motion.div>
           ))}

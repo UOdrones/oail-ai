@@ -30,7 +30,7 @@ export default function BakkenAI() {
                     viewport={{ once: true }}
                 >
                     <div className="w-8 h-px bg-oailRed/60" />
-                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
                         Coverage
                     </span>
                 </motion.div>
@@ -47,7 +47,7 @@ export default function BakkenAI() {
                 </motion.h2>
 
                 <motion.p
-                    className="text-gray-500 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
+                    className="text-gray-400 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -69,14 +69,14 @@ export default function BakkenAI() {
                             transition={{ delay: i * 0.06, duration: 0.5 }}
                         >
                             {play.status === 'HQ' && (
-                                <span className="absolute top-3 right-3 font-orbitron text-[6px] tracking-[0.2em] text-oailRed px-2 py-0.5 rounded border border-oailRed/30 uppercase">
+                                <span className="absolute top-3 right-3 font-orbitron text-[6px] tracking-[0.2em] text-oailRed px-2 py-0.5 rounded border border-oailRed/40 uppercase">
                                     {play.status}
                                 </span>
                             )}
                             <p className="font-orbitron text-sm md:text-base font-bold text-white tracking-[0.1em]">
                                 {play.name}
                             </p>
-                            <p className="text-gray-600 text-[10px] md:text-xs mt-1.5">{play.region}</p>
+                            <p className="text-gray-400 text-[10px] md:text-xs mt-1.5">{play.region}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -96,7 +96,7 @@ export default function BakkenAI() {
                         we're deploying
                         <span className="text-oailRed"> autonomous intelligence.</span>"
                     </blockquote>
-                    <p className="font-orbitron text-[8px] tracking-[0.3em] text-gray-700 mt-6 uppercase">
+                    <p className="font-orbitron text-[8px] tracking-[0.3em] text-gray-500 mt-6 uppercase">
                         There's a difference.
                     </p>
                 </motion.div>
@@ -115,7 +115,7 @@ export default function BakkenAI() {
                             <span className="font-orbitron text-2xl md:text-3xl font-black text-oailRed block mb-2">
                                 {stat.value}
                             </span>
-                            <span className="font-orbitron text-[7px] md:text-[8px] tracking-[0.2em] text-gray-600 uppercase">
+                            <span className="font-orbitron text-[7px] md:text-[8px] tracking-[0.2em] text-gray-400 uppercase">
                                 {stat.label}
                             </span>
                         </motion.div>

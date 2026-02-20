@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-32 md:py-40 px-6">
+    <section id="contact" className="relative py-32 md:py-40 px-6 surface-alt">
       <div className="max-w-3xl mx-auto text-center">
 
         {/* Section label */}
@@ -12,11 +12,11 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <div className="w-8 h-px bg-oailRed/40" />
-          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+          <div className="w-8 h-px bg-oailRed/50" />
+          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
             Get In
           </span>
-          <div className="w-8 h-px bg-oailRed/40" />
+          <div className="w-8 h-px bg-oailRed/50" />
         </motion.div>
 
         {/* CTA */}
@@ -31,7 +31,7 @@ export default function Contact() {
         </motion.h2>
 
         <motion.p
-          className="text-gray-500 text-sm md:text-base max-w-md mx-auto leading-relaxed mb-12"
+          className="text-gray-400 text-sm md:text-base max-w-md mx-auto leading-relaxed mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -44,7 +44,7 @@ export default function Contact() {
         {/* Email CTA */}
         <motion.a
           href="mailto:contact@oail.ai"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-oailRed/30 bg-oailRed/5 font-orbitron text-xs md:text-sm tracking-[0.2em] text-white uppercase transition-all duration-500 hover:bg-oailRed hover:border-oailRed hover:shadow-[0_0_60px_rgba(204,0,0,0.4)] hover:scale-105 group"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-oailRed/40 bg-oailRed/8 font-orbitron text-xs md:text-sm tracking-[0.2em] text-white uppercase transition-all duration-500 hover:bg-oailRed hover:border-oailRed hover:shadow-[0_0_60px_rgba(204,0,0,0.4)] hover:scale-105 group"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -56,21 +56,21 @@ export default function Contact() {
 
         {/* Secondary */}
         <motion.p
-          className="mt-8 text-gray-700 text-xs"
+          className="mt-8 text-gray-500 text-xs"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
           or email directly:{' '}
-          <a href="mailto:contact@oail.ai" className="text-gray-500 hover:text-oailRed transition-colors">
+          <a href="mailto:contact@oail.ai" className="text-gray-400 hover:text-oailRed transition-colors">
             contact@oail.ai
           </a>
         </motion.p>
 
         {/* FOMO closer */}
         <motion.p
-          className="mt-16 font-orbitron text-[8px] tracking-[0.5em] text-gray-800 uppercase"
+          className="mt-16 font-orbitron text-[8px] tracking-[0.5em] text-gray-600 uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

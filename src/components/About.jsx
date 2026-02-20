@@ -13,7 +13,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="w-8 h-px bg-oailRed/60" />
-          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
             Who We Are
           </span>
         </motion.div>
@@ -30,11 +30,11 @@ export default function About() {
             >
               We don't consult<br />
               for oil & gas.<br />
-              <span className="text-chrome">We <em className="font-playfair italic text-oailRed not-italic" style={{ fontFamily: "'Playfair Display', serif" }}>are</em> oil & gas.</span>
+              <span className="text-chrome">We <em className="text-oailRed not-italic" style={{ fontFamily: "'Playfair Display', serif" }}>are</em> oil & gas.</span>
             </motion.h2>
 
             <motion.p
-              className="text-gray-400 text-sm md:text-base leading-relaxed max-w-lg mb-8"
+              className="text-gray-300 text-sm md:text-base leading-relaxed max-w-lg mb-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -46,7 +46,7 @@ export default function About() {
             </motion.p>
 
             <motion.p
-              className="text-gray-500 text-sm leading-relaxed max-w-lg"
+              className="text-gray-400 text-sm leading-relaxed max-w-lg"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -66,15 +66,15 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <p className="font-orbitron text-[8px] tracking-[0.4em] text-gray-600 uppercase mb-4">
+            <p className="font-orbitron text-[8px] tracking-[0.4em] text-gray-500 uppercase mb-4">
               Our Position
             </p>
             <p className="text-white text-lg md:text-xl font-medium leading-relaxed mb-6">
               "The energy industry's most advanced AI isn't being built in Silicon Valley.
               It's being built in the field."
             </p>
-            <div className="h-px bg-white/5 mb-4" />
-            <p className="text-gray-600 text-xs">
+            <div className="h-px bg-white/8 mb-4" />
+            <p className="text-gray-500 text-xs">
               OAIL.ai — Williston Basin HQ
             </p>
           </motion.div>
@@ -95,8 +95,8 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 * i, duration: 0.6 }}
             >
-              <p className="font-orbitron text-[9px] tracking-[0.3em] text-oailRed/60 uppercase mb-3">{cap.title}</p>
-              <p className="text-gray-400 text-sm leading-relaxed">{cap.desc}</p>
+              <p className="font-orbitron text-[9px] tracking-[0.3em] text-oailRed/80 uppercase mb-3">{cap.title}</p>
+              <p className="text-gray-300 text-sm leading-relaxed">{cap.desc}</p>
             </motion.div>
           ))}
         </div>

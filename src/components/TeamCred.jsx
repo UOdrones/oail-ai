@@ -39,7 +39,7 @@ const techTeam = ['TARGET', 'SAMSUNG', 'DOD', 'FORTUNE 500']
 
 export default function TeamCred() {
     return (
-        <section id="team" className="relative py-32 md:py-40 px-6">
+        <section id="team" className="relative py-32 md:py-40 px-6 surface-alt">
             <div className="max-w-5xl mx-auto">
 
                 {/* Section label */}
@@ -50,7 +50,7 @@ export default function TeamCred() {
                     viewport={{ once: true }}
                 >
                     <div className="w-8 h-px bg-oailRed/60" />
-                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed/70 uppercase">
+                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
                         The Team
                     </span>
                 </motion.div>
@@ -67,7 +67,7 @@ export default function TeamCred() {
                 </motion.h2>
 
                 <motion.p
-                    className="text-gray-500 text-sm md:text-base max-w-lg mb-20 leading-relaxed"
+                    className="text-gray-300 text-sm md:text-base max-w-lg mb-20 leading-relaxed"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -89,11 +89,11 @@ export default function TeamCred() {
                             transition={{ delay: i * 0.15, duration: 0.6 }}
                         >
                             <Counter target={c.years} />
-                            <p className="font-orbitron text-[8px] tracking-[0.3em] text-oailRed/60 mt-3 mb-4 uppercase">Years</p>
+                            <p className="font-orbitron text-[8px] tracking-[0.3em] text-oailRed/80 mt-3 mb-4 uppercase">Years</p>
                             <h3 className="font-orbitron text-xs tracking-[0.2em] text-white mb-4 uppercase font-semibold">
                                 {c.role}
                             </h3>
-                            <p className="text-gray-500 text-sm leading-relaxed">{c.desc}</p>
+                            <p className="text-gray-400 text-sm leading-relaxed">{c.desc}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -108,7 +108,7 @@ export default function TeamCred() {
                 >
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-oailRed/40 to-transparent" />
 
-                    <p className="font-orbitron text-[9px] tracking-[0.4em] text-gray-600 uppercase mb-4">
+                    <p className="font-orbitron text-[9px] tracking-[0.4em] text-gray-500 uppercase mb-4">
                         Engineering Pedigree
                     </p>
                     <p className="text-gray-300 text-base md:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
@@ -119,7 +119,7 @@ export default function TeamCred() {
                         {techTeam.map((name, i) => (
                             <motion.span
                                 key={name}
-                                className="px-5 py-2.5 rounded-lg border border-white/10 font-orbitron text-[10px] md:text-xs tracking-[0.2em] text-white/80 hover:border-oailRed/40 hover:text-oailRed transition-all duration-300"
+                                className="px-5 py-2.5 rounded-lg border border-white/15 font-orbitron text-[10px] md:text-xs tracking-[0.2em] text-white/90 hover:border-oailRed/50 hover:text-oailRed transition-all duration-300"
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function TeamCred() {
                         ))}
                     </div>
 
-                    <p className="text-gray-600 text-sm max-w-md mx-auto">
+                    <p className="text-gray-400 text-sm max-w-md mx-auto">
                         Now they're building the most advanced AI platform the energy industry has ever seen.
                     </p>
                 </motion.div>

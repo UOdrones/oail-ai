@@ -12,7 +12,7 @@ export default function Vision() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <span className="text-6xl md:text-8xl text-oailRed/20 font-playfair leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <span className="text-6xl md:text-8xl text-oailRed/30 leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
             "
           </span>
         </motion.div>
@@ -39,7 +39,7 @@ export default function Vision() {
         />
 
         <motion.p
-          className="text-gray-500 text-sm md:text-base max-w-lg mx-auto leading-relaxed"
+          className="text-gray-400 text-sm md:text-base max-w-lg mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
