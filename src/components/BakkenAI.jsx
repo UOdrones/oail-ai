@@ -1,129 +1,114 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 
 const plays = [
-    { name: 'PERMIAN', region: 'West Texas / New Mexico', status: 'PRIMARY' },
-    { name: 'BAKKEN', region: 'North Dakota / Montana', status: 'HQ' },
-    { name: 'EAGLE FORD', region: 'South Texas', status: 'EXPANDING' },
-    { name: 'DJ BASIN', region: 'Colorado / Wyoming', status: 'TARGETING' },
-    { name: 'MARCELLUS', region: 'Appalachia', status: 'TARGETING' },
-    { name: 'SCOOP/STACK', region: 'Oklahoma', status: 'TARGETING' },
+    { name: 'Permian', region: 'West Texas / New Mexico', status: 'Primary' },
+    { name: 'Bakken', region: 'North Dakota / Montana', status: 'HQ' },
+    { name: 'Eagle Ford', region: 'South Texas', status: 'Expanding' },
+    { name: 'DJ Basin', region: 'Colorado / Wyoming', status: 'Targeting' },
+    { name: 'Marcellus', region: 'Appalachia', status: 'Targeting' },
+    { name: 'SCOOP/STACK', region: 'Oklahoma', status: 'Targeting' },
 ]
 
 const stats = [
     { value: '9.5M+', label: 'US Barrels / Day' },
-    { value: '6', label: 'Major Basin Coverage' },
+    { value: '6', label: 'Major Basins' },
     { value: '24/7', label: 'Autonomous Ops' },
-    { value: '∞', label: 'Upside with AI' },
+    { value: '∞', label: 'Upside' },
 ]
 
 export default function BakkenAI() {
     return (
-        <section id="coverage" className="relative py-32 md:py-40 px-6 overflow-hidden">
-            <div className="max-w-5xl mx-auto">
-
-                {/* Section label */}
-                <motion.div
-                    className="flex items-center gap-4 mb-6"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="w-8 h-px bg-oailRed/60" />
-                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
-                        Coverage
-                    </span>
-                </motion.div>
+        <section id="coverage" className="section-padding section-dark">
+            <div className="max-w-6xl mx-auto">
 
                 {/* Header */}
-                <motion.h2
-                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight"
+                <motion.div
+                    className="mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    Every major play.<br />
-                    <span className="text-chrome">One intelligence platform.</span>
-                </motion.h2>
+                    <p className="section-label mb-8" style={{ color: 'rgba(241,240,234,0.5)' }}>Coverage</p>
+                    <h2 className="headline-large">
+                        Every major play.<br />
+                        One intelligence platform.
+                    </h2>
+                </motion.div>
 
                 <motion.p
-                    className="text-gray-400 text-sm md:text-base max-w-lg mb-16 leading-relaxed"
+                    className="body-text max-w-xl mt-8 mb-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
                 >
                     From the Permian to the Bakken, Eagle Ford to the Marcellus — we deploy AI where it matters most.
-                    <span className="text-white font-medium"> In the field. On the pad. At the wellhead.</span>
+                    In the field. On the pad. At the wellhead.
                 </motion.p>
 
-                {/* Plays grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-20">
-                    {plays.map((play, i) => (
-                        <motion.div
-                            key={i}
-                            className="glass glass-hover card-glow rounded-xl p-6 text-center relative"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.06, duration: 0.5 }}
-                        >
-                            {play.status === 'HQ' && (
-                                <span className="absolute top-3 right-3 font-orbitron text-[6px] tracking-[0.2em] text-oailRed px-2 py-0.5 rounded border border-oailRed/40 uppercase">
-                                    {play.status}
-                                </span>
-                            )}
-                            <p className="font-orbitron text-sm md:text-base font-bold text-white tracking-[0.1em]">
-                                {play.name}
-                            </p>
-                            <p className="text-gray-400 text-[10px] md:text-xs mt-1.5">{play.region}</p>
-                        </motion.div>
-                    ))}
-                </div>
+                <div className="divider mt-12" />
 
-                {/* Manifesto quote */}
-                <motion.div
-                    className="glass rounded-xl p-10 md:p-14 text-center relative mb-16"
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-px bg-gradient-to-r from-transparent via-oailRed/40 to-transparent" />
-                    <blockquote className="text-lg md:text-2xl text-white font-semibold leading-relaxed max-w-2xl mx-auto">
-                        "While the rest of the industry is still talking about
-                        <span className="text-oailRed"> digital transformation</span>,
-                        we're deploying
-                        <span className="text-oailRed"> autonomous intelligence.</span>"
-                    </blockquote>
-                    <p className="font-orbitron text-[8px] tracking-[0.3em] text-gray-500 mt-6 uppercase">
-                        There's a difference.
-                    </p>
-                </motion.div>
+                {/* Basin Rows */}
+                {plays.map((play, i) => (
+                    <motion.div
+                        key={i}
+                        className="grid-row"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04, duration: 0.4 }}
+                    >
+                        <p className="text-2xl md:text-3xl font-bold" style={{ letterSpacing: '-0.02em' }}>
+                            {play.name}
+                        </p>
+                        <p style={{ color: 'rgba(241,240,234,0.6)' }} className="text-sm md:text-base">
+                            {play.region}
+                        </p>
+                        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ color: play.status === 'HQ' ? 'var(--oail-red)' : 'rgba(241,240,234,0.4)' }}>
+                            {play.status}
+                        </p>
+                    </motion.div>
+                ))}
 
-                {/* Stats */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {/* Stats row */}
+                <div className="divider mt-4" />
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-0">
                     {stats.map((stat, i) => (
                         <motion.div
                             key={i}
-                            className="glass rounded-xl p-6 text-center"
-                            initial={{ opacity: 0, y: 15 }}
+                            className="py-10"
+                            style={{ borderRight: i < 3 ? '1px solid rgba(241,240,234,0.08)' : 'none' }}
+                            initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.08, duration: 0.5 }}
+                            transition={{ delay: i * 0.06, duration: 0.4 }}
                         >
-                            <span className="font-orbitron text-2xl md:text-3xl font-black text-oailRed block mb-2">
+                            <span className="block text-3xl md:text-4xl font-black" style={{ letterSpacing: '-0.03em', color: 'var(--cream)' }}>
                                 {stat.value}
                             </span>
-                            <span className="font-orbitron text-[7px] md:text-[8px] tracking-[0.2em] text-gray-400 uppercase">
+                            <span className="block text-[10px] font-semibold tracking-[0.15em] uppercase mt-2" style={{ color: 'rgba(241,240,234,0.4)' }}>
                                 {stat.label}
                             </span>
                         </motion.div>
                     ))}
                 </div>
-            </div>
 
-            <div className="hr-glow mt-32 mx-auto w-1/2" />
+                {/* Manifesto */}
+                <div className="divider mt-4" />
+                <motion.div
+                    className="py-20 max-w-3xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <blockquote className="text-xl md:text-2xl font-semibold leading-relaxed" style={{ color: 'var(--cream)' }}>
+                        "While the rest of the industry is still talking about digital transformation,
+                        we're deploying <span style={{ color: 'var(--oail-red)' }}>autonomous intelligence.</span>"
+                    </blockquote>
+                    <p className="text-[11px] font-medium tracking-[0.15em] uppercase mt-6" style={{ color: 'rgba(241,240,234,0.35)' }}>
+                        There's a difference.
+                    </p>
+                </motion.div>
+            </div>
         </section>
     )
 }

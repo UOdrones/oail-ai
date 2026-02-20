@@ -2,55 +2,40 @@ import { motion } from 'framer-motion'
 
 export default function Vision() {
   return (
-    <section id="vision" className="relative py-32 md:py-40 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="vision" className="section-padding" style={{ background: 'var(--cream-dark)' }}>
+      <div className="max-w-5xl mx-auto">
 
-        {/* Quote mark */}
+        {/* Massive editorial quote */}
         <motion.div
-          className="mb-10"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <span className="text-6xl md:text-8xl text-oailRed/30 leading-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-            "
-          </span>
-        </motion.div>
-
-        {/* The manifesto */}
-        <motion.blockquote
-          className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.2] tracking-tight mb-8"
+          className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          We don't follow the industry.<br />
-          We don't disrupt the industry.<br />
-          <span className="text-oailRed">We drag it forward.</span>
-        </motion.blockquote>
+          <h2 className="headline-massive leading-[0.95]">
+            We don't follow<br />
+            the industry.<br />
+            We don't disrupt<br />
+            the industry.<br />
+            <span style={{ color: 'var(--oail-red)' }}>We drag it<br />forward.</span>
+          </h2>
+        </motion.div>
 
-        <motion.div
-          className="hr-glow w-12 mx-auto mb-8"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        />
+        <div className="divider" />
 
         <motion.p
-          className="text-gray-400 text-sm md:text-base max-w-lg mx-auto leading-relaxed"
+          className="body-text max-w-lg mt-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.3 }}
         >
           Energy operations become self-optimizing ecosystems — safer, cleaner,
           and orchestrated by intelligence that never sleeps.
         </motion.p>
-      </div>
 
-      <div className="hr-glow mt-32 mx-auto w-1/2" />
+      </div>
     </section>
   )
 }

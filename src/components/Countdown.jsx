@@ -1,58 +1,51 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Countdown() {
     const target = new Date('2026-05-18T12:00:00-05:00').getTime()
     const [now, setNow] = useState(Date.now())
 
     useEffect(() => {
-        const id = setInterval(() => setNow(Date.now()), 1000)
-        return () => clearInterval(id)
+        const timer = setInterval(() => setNow(Date.now()), 1000)
+        return () => clearInterval(timer)
     }, [])
 
     const diff = Math.max(0, target - now)
-    const days = Math.floor(diff / 86400000)
-    const hours = Math.floor((diff % 86400000) / 3600000)
-    const minutes = Math.floor((diff % 3600000) / 60000)
-    const seconds = Math.floor((diff % 60000) / 1000)
+    const d = Math.floor(diff / 86400000)
+    const h = Math.floor((diff % 86400000) / 3600000)
+    const m = Math.floor((diff % 3600000) / 60000)
+    const s = Math.floor((diff % 60000) / 1000)
 
     const units = [
-        { value: days, label: 'DAYS' },
-        { value: hours, label: 'HRS' },
-        { value: minutes, label: 'MIN' },
-        { value: seconds, label: 'SEC' },
+        { value: d, label: 'Days' },
+        { value: h, label: 'Hrs' },
+        { value: m, label: 'Min' },
+        { value: s, label: 'Sec' },
     ]
 
     return (
-        <div className="flex flex-col items-center gap-6">
-            {/* Label */}
-            <p className="font-orbitron text-[9px] md:text-[10px] tracking-[0.5em] text-oailRed/70 uppercase">
+        <div className="text-center">
+            <p className="section-label text-[var(--ink-tertiary)] mb-6" style={{ fontSize: '10px', letterSpacing: '0.2em' }}>
                 Launching In
             </p>
-
-            {/* Digits */}
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-3 md:gap-5">
                 {units.map((u, i) => (
-                    <div key={u.label} className="flex items-center gap-3 md:gap-4">
-                        <div className="flex flex-col items-center">
-                            <div className="countdown-digit rounded-lg px-4 py-3 md:px-5 md:py-4 min-w-[60px] md:min-w-[72px]">
-                                <span className="font-orbitron text-2xl md:text-3xl font-bold text-white block text-center">
-                                    {String(u.value).padStart(2, '0')}
-                                </span>
-                            </div>
-                            <span className="font-orbitron text-[7px] tracking-[0.3em] text-gray-600 mt-2">
+                    <div key={u.label} className="flex items-center gap-3 md:gap-5">
+                        <div className="text-center">
+                            <span className="block text-3xl md:text-5xl font-black text-[var(--ink)] tabular-nums" style={{ letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>
+                                {String(u.value).padStart(2, '0')}
+                            </span>
+                            <span className="block text-[9px] md:text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--ink-tertiary)] mt-2">
                                 {u.label}
                             </span>
                         </div>
-                        {i < units.length - 1 && (
-                            <span className="text-oailRed/30 text-xl font-light mb-5">:</span>
+                        {i < 3 && (
+                            <span className="text-xl md:text-2xl font-light text-[var(--ink-tertiary)]">:</span>
                         )}
                     </div>
                 ))}
             </div>
-
-            {/* Date */}
-            <p className="font-orbitron text-[8px] tracking-[0.4em] text-gray-700">
-                MAY 18, 2026 · 12:00 PM CT
+            <p className="text-[10px] text-[var(--ink-tertiary)] mt-6 tracking-wider uppercase font-medium">
+                May 18, 2026 · 12:00 PM CT
             </p>
         </div>
     )

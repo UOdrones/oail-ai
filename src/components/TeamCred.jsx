@@ -9,7 +9,7 @@ function Counter({ target, suffix = '+' }) {
     useEffect(() => {
         if (!inView) return
         let start = 0
-        const step = target / 60
+        const step = target / 50
         const timer = setInterval(() => {
             start += step
             if (start >= target) {
@@ -18,13 +18,13 @@ function Counter({ target, suffix = '+' }) {
             } else {
                 setCount(Math.floor(start))
             }
-        }, 16)
+        }, 20)
         return () => clearInterval(timer)
     }, [inView, target])
 
     return (
-        <span ref={ref} className="font-orbitron text-5xl md:text-7xl font-black text-chrome-shine block">
-            {count}<span className="text-oailRed">{suffix}</span>
+        <span ref={ref} className="text-5xl md:text-7xl font-black text-[var(--ink)] block" style={{ letterSpacing: '-0.04em' }}>
+            {count}<span className="text-[var(--oail-red)]">{suffix}</span>
         </span>
     )
 }
@@ -35,108 +35,85 @@ const creds = [
     { years: 20, role: 'Service Side O&G', desc: 'Equipment logistics. Field services. Vendor management. The operational backbone that keeps every job on time.' },
 ]
 
-const techTeam = ['TARGET', 'SAMSUNG', 'DOD', 'FORTUNE 500']
+const techTeam = ['Target', 'Samsung', 'DOD', 'Fortune 500']
 
 export default function TeamCred() {
     return (
-        <section id="team" className="relative py-32 md:py-40 px-6 surface-alt">
-            <div className="max-w-5xl mx-auto">
-
-                {/* Section label */}
-                <motion.div
-                    className="flex items-center gap-4 mb-6"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <div className="w-8 h-px bg-oailRed/60" />
-                    <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
-                        The Team
-                    </span>
-                </motion.div>
+        <section id="team" className="section-padding">
+            <div className="max-w-6xl mx-auto">
 
                 {/* Header */}
-                <motion.h2
-                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
+                <motion.div
+                    className="mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    Built by operators.<br />
-                    <span className="text-chrome">Engineered by elite.</span>
-                </motion.h2>
+                    <p className="section-label text-[var(--ink-tertiary)] mb-8">The Team</p>
+                    <h2 className="headline-large max-w-4xl">
+                        Built by operators.<br />Engineered by elite.
+                    </h2>
+                </motion.div>
 
                 <motion.p
-                    className="text-gray-300 text-sm md:text-base max-w-lg mb-20 leading-relaxed"
+                    className="body-text max-w-xl mt-8 mb-4"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
                 >
                     51+ combined years of field experience. A tech team that built for the world's most demanding organizations.
                     This isn't a startup playing oil & gas. This is oil & gas building its own future.
                 </motion.p>
 
-                {/* Credential pillars */}
-                <div className="grid md:grid-cols-3 gap-6 mb-20">
-                    {creds.map((c, i) => (
-                        <motion.div
-                            key={i}
-                            className="glass glass-hover card-glow rounded-xl p-8 text-center"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.15, duration: 0.6 }}
-                        >
+                <div className="divider mt-12" />
+
+                {/* Credential rows */}
+                {creds.map((c, i) => (
+                    <motion.div
+                        key={i}
+                        className="grid-row items-start"
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.08, duration: 0.5 }}
+                    >
+                        <div>
                             <Counter target={c.years} />
-                            <p className="font-orbitron text-[8px] tracking-[0.3em] text-oailRed/80 mt-3 mb-4 uppercase">Years</p>
-                            <h3 className="font-orbitron text-xs tracking-[0.2em] text-white mb-4 uppercase font-semibold">
-                                {c.role}
-                            </h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">{c.desc}</p>
-                        </motion.div>
-                    ))}
-                </div>
+                            <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[var(--ink-tertiary)] mt-2">Years</p>
+                        </div>
+                        <p className="summary-text font-semibold">{c.role}</p>
+                        <p className="body-text">{c.desc}</p>
+                    </motion.div>
+                ))}
 
-                {/* Tech team */}
+                {/* Engineering Pedigree */}
+                <div className="divider" />
                 <motion.div
-                    className="glass rounded-xl p-10 md:p-14 text-center relative overflow-hidden"
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    className="py-16"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
                 >
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-oailRed/40 to-transparent" />
-
-                    <p className="font-orbitron text-[9px] tracking-[0.4em] text-gray-500 uppercase mb-4">
-                        Engineering Pedigree
-                    </p>
-                    <p className="text-gray-300 text-base md:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+                    <p className="section-label text-[var(--ink-tertiary)] mb-6">Engineering Pedigree</p>
+                    <p className="summary-text max-w-lg mb-8">
                         Our engineers built enterprise applications for
                     </p>
-
-                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
-                        {techTeam.map((name, i) => (
-                            <motion.span
+                    <div className="flex flex-wrap gap-3">
+                        {techTeam.map((name) => (
+                            <span
                                 key={name}
-                                className="px-5 py-2.5 rounded-lg border border-white/15 font-orbitron text-[10px] md:text-xs tracking-[0.2em] text-white/90 hover:border-oailRed/50 hover:text-oailRed transition-all duration-300"
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 + i * 0.1 }}
+                                className="px-5 py-2.5 text-[12px] font-semibold tracking-[0.1em] uppercase text-[var(--ink)] hover:text-[var(--oail-red)] transition-colors"
+                                style={{ border: '1px solid var(--divider-strong)' }}
                             >
                                 {name}
-                            </motion.span>
+                            </span>
                         ))}
                     </div>
-
-                    <p className="text-gray-400 text-sm max-w-md mx-auto">
+                    <p className="body-text mt-8 max-w-md">
                         Now they're building the most advanced AI platform the energy industry has ever seen.
                     </p>
                 </motion.div>
             </div>
-
-            <div className="hr-glow mt-32 mx-auto w-1/2" />
         </section>
     )
 }

@@ -1,50 +1,56 @@
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 px-6 py-5"
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 px-12 py-5 flex items-center justify-between transition-all duration-300"
+      style={{
+        background: scrolled ? 'rgba(241, 240, 234, 0.9)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--divider)' : '1px solid transparent',
+      }}
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
-        {/* Logo mark */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <span className="w-1.5 h-1.5 rounded-full bg-oailRed shadow-[0_0_8px_rgba(204,0,0,0.8)] group-hover:shadow-[0_0_16px_rgba(204,0,0,1)] transition-shadow" />
-          <span className="font-orbitron text-xs tracking-[0.3em] text-white/80 group-hover:text-white transition-colors">
-            OAIL
-          </span>
-        </a>
+      {/* Logo */}
+      <a href="#hero" className="flex items-center gap-3 group">
+        <img
+          src="/OAIL3.png"
+          alt="OAIL"
+          className="w-8 h-8 object-contain"
+          style={{ clipPath: 'inset(0 0 30% 0)', marginBottom: '-4px' }}
+        />
+        <span className="text-sm font-bold tracking-[0.15em] text-[var(--ink)]" style={{ fontFamily: 'Inter' }}>
+          OAIL
+        </span>
+      </a>
 
-        {/* Nav links — minimal, only essentials */}
-        <div className="hidden md:flex items-center gap-10 text-[10px] font-medium uppercase tracking-[0.35em] text-gray-600">
-          {[
-            { label: 'About', href: '#about' },
-            { label: 'Team', href: '#team' },
-            { label: 'Stack', href: '#stack' },
-          ].map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="hover:text-white transition-colors duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <a
-          href="mailto:contact@oail.ai"
-          className="text-[10px] font-orbitron tracking-[0.25em] text-gray-500 hover:text-oailRed transition-colors duration-300 uppercase"
-        >
-          Contact
-        </a>
+      {/* Nav links */}
+      <div className="hidden md:flex items-center gap-10">
+        {['About', 'Team', 'Stack', 'Coverage'].map(link => (
+          <a
+            key={link}
+            href={`#${link.toLowerCase()}`}
+            className="text-[13px] font-medium text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors duration-200"
+          >
+            {link}
+          </a>
+        ))}
       </div>
 
-      {/* Bottom border — barely there */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-white/[0.03]" />
-    </motion.nav>
+      {/* CTA */}
+      <a
+        href="#contact"
+        className="text-[13px] font-semibold text-[var(--ink)] hover:text-[var(--oail-red)] transition-colors duration-200 flex items-center gap-2"
+      >
+        Contact <span className="text-base">↗</span>
+      </a>
+    </nav>
   )
 }

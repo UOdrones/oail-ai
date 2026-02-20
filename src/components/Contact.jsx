@@ -2,82 +2,69 @@ import { motion } from 'framer-motion'
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-32 md:py-40 px-6 surface-alt">
-      <div className="max-w-3xl mx-auto text-center">
+    <section id="contact" className="section-padding">
+      <div className="max-w-6xl mx-auto">
 
-        {/* Section label */}
-        <motion.div
-          className="flex items-center justify-center gap-4 mb-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-8 h-px bg-oailRed/50" />
-          <span className="font-orbitron text-[9px] tracking-[0.5em] text-oailRed uppercase">
-            Get In
-          </span>
-          <div className="w-8 h-px bg-oailRed/50" />
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-20 items-start">
 
-        {/* CTA */}
-        <motion.h2
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          The future isn't waiting.<br />
-          <span className="text-chrome">Neither should you.</span>
-        </motion.h2>
+          {/* Left — CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="section-label text-[var(--ink-tertiary)] mb-8">Get In</p>
+            <h2 className="headline-large mb-8">
+              The future isn't waiting.
+            </h2>
+            <p className="body-text max-w-md mb-10">
+              We're selectively partnering with operators, investors, and forward-thinkers
+              who want to be first — not second.
+            </p>
 
-        <motion.p
-          className="text-gray-400 text-sm md:text-base max-w-md mx-auto leading-relaxed mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          We're selectively partnering with operators, investors, and forward-thinkers
-          who want to be first — not second.
-        </motion.p>
+            <a
+              href="mailto:contact@oail.ai"
+              className="btn-industrial-outline"
+            >
+              Request Early Access <span className="text-lg">↗</span>
+            </a>
 
-        {/* Email CTA */}
-        <motion.a
-          href="mailto:contact@oail.ai"
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-oailRed/40 bg-oailRed/8 font-orbitron text-xs md:text-sm tracking-[0.2em] text-white uppercase transition-all duration-500 hover:bg-oailRed hover:border-oailRed hover:shadow-[0_0_60px_rgba(204,0,0,0.4)] hover:scale-105 group"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <span className="w-2 h-2 rounded-full bg-oailRed shadow-[0_0_10px_rgba(204,0,0,0.8)] group-hover:bg-white transition-colors" />
-          Request Early Access
-        </motion.a>
+            <p className="body-text mt-6 text-sm">
+              or email directly:{' '}
+              <a href="mailto:contact@oail.ai" className="text-[var(--ink)] font-medium hover:text-[var(--oail-red)] transition-colors underline">
+                contact@oail.ai
+              </a>
+            </p>
+          </motion.div>
 
-        {/* Secondary */}
-        <motion.p
-          className="mt-8 text-gray-500 text-xs"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          or email directly:{' '}
-          <a href="mailto:contact@oail.ai" className="text-gray-400 hover:text-oailRed transition-colors">
-            contact@oail.ai
-          </a>
-        </motion.p>
+          {/* Right — Details */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+          >
+            <div className="divider mb-8" />
+            <div className="grid gap-8">
+              <div>
+                <p className="section-label text-[var(--ink-tertiary)] mb-2">Headquarters</p>
+                <p className="text-sm text-[var(--ink)]">Williston Basin, North Dakota</p>
+              </div>
+              <div className="divider" />
+              <div>
+                <p className="section-label text-[var(--ink-tertiary)] mb-2">Launch</p>
+                <p className="text-sm text-[var(--ink)]">May 18, 2026</p>
+              </div>
+              <div className="divider" />
+              <div>
+                <p className="section-label text-[var(--ink-tertiary)] mb-2">Contact</p>
+                <p className="text-sm text-[var(--ink)]">contact@oail.ai</p>
+              </div>
+            </div>
+          </motion.div>
 
-        {/* FOMO closer */}
-        <motion.p
-          className="mt-16 font-orbitron text-[8px] tracking-[0.5em] text-gray-600 uppercase"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          First movers get remembered · Everyone else gets disrupted
-        </motion.p>
+        </div>
+
       </div>
     </section>
   )
