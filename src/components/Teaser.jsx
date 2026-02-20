@@ -32,7 +32,7 @@ export default function Teaser() {
     const [hoveredIndex, setHoveredIndex] = useState(null)
 
     return (
-        <section className="relative py-24 md:py-32 px-6 bg-obsidian" data-nosnippet>
+        <section id="teaser" className="relative py-24 md:py-32 px-6 bg-black" data-nosnippet>
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <motion.div

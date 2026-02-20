@@ -1,114 +1,71 @@
+import React from 'react'
 import { motion } from 'framer-motion'
-import logo from '../three/OAIL3.png'
+import Countdown from './Countdown'
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-[640px] w-full items-center justify-center overflow-hidden px-6 pt-24 text-center"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/60 to-black/85" />
-      <div className="absolute left-1/2 top-0 h-[1480px] w-[1480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-oailRed/45 via-oailRed/20 to-transparent blur-[220px]" />
-      <div className="absolute left-1/2 top-16 h-48 w-[480px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* Deep dark background with radial red bleed */}
+      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 bg-gradient-radial from-oailRed/8 via-transparent to-transparent" />
 
+      {/* Scan overlay */}
+      <div className="absolute inset-0 scan-overlay opacity-30" />
+
+      {/* Particle Grid Overlay */}
+      <div className="absolute inset-0 particle-grid opacity-15" />
+
+      {/* Content */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, ease: 'easeOut' }}
-        className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-10"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-16"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: 'easeOut' }}
       >
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-0 -z-20 mx-auto h-[520px] w-[620px] -translate-y-12 bg-[radial-gradient(circle_at_35%_40%,rgba(248,113,113,0.18),transparent_32%),radial-gradient(circle_at_65%_45%,rgba(59,130,246,0.18),transparent_34%),conic-gradient(from_120deg_at_50%_50%,rgba(255,255,255,0.08),rgba(255,255,255,0.04),rgba(248,113,113,0.08),rgba(59,130,246,0.06),rgba(255,255,255,0.05))] opacity-60 blur-3xl" />
-          <motion.span
-            className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-oailRed/40 via-transparent to-transparent blur-3xl"
-            animate={{ opacity: [0.55, 0.2, 0.55], scale: [1, 1.1, 1] }}
-            transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-4 -z-10 mx-auto h-24 w-64 rounded-full bg-white/20 blur-3xl" />
-          <motion.img
-            src={logo}
-            alt="OAIL.ai logo"
-            className="w-full max-w-[420px] drop-shadow-[0_0_50px_rgba(248,113,113,0.55)]"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{
-              opacity: [1, 1, 1],
-              scale: [1, 1.05, 1],
-              filter: [
-                'drop-shadow(0 0 55px rgba(248,113,113,0.75))',
-                'drop-shadow(0 0 105px rgba(239,68,68,0.85))',
-                'drop-shadow(0 0 65px rgba(248,113,113,0.55))'
-              ]
-            }}
-            transition={{
-              duration: 3.6,
-              repeat: Infinity,
-              repeatType: 'loop',
-              ease: 'easeInOut',
-              delay: 0.25
-            }}
-          />
-        </div>
+        {/* 
+          Logo — THE centerpiece. No competing text. 
+          The logo already says "OAIL" and "ARTIFICIAL INTELLIGENCE FOR ENERGY".
+          Let it breathe.
+        */}
+        <motion.img
+          src="/OAIL3.png"
+          alt="OAIL — Artificial Intelligence for Energy"
+          className="w-72 md:w-[420px] lg:w-[500px] h-auto mb-10"
+          style={{ maxWidth: '90vw' }}
+          animate={{
+            filter: [
+              'drop-shadow(0 0 30px rgba(204,0,0,0.4)) drop-shadow(0 0 80px rgba(204,0,0,0.15))',
+              'drop-shadow(0 0 50px rgba(204,0,0,0.7)) drop-shadow(0 0 120px rgba(204,0,0,0.3))',
+              'drop-shadow(0 0 30px rgba(204,0,0,0.4)) drop-shadow(0 0 80px rgba(204,0,0,0.15))',
+            ],
+          }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
 
-        <motion.span
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
+        {/* One punchy subtext line */}
+        <motion.p
+          className="text-gray-400 text-sm md:text-base max-w-xl mb-12 font-inter tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 1 }}
         >
-          Artificial Intelligence for Energy
-        </motion.span>
+          The future of energy runs on intelligence.
+          <span className="text-oailRed font-semibold"> We're building it.</span>
+        </motion.p>
 
-        <div className="space-y-6">
-          <motion.h1
-            className="text-4xl font-bold text-white md:text-6xl"
-            animate={{ textShadow: '0 0 32px rgba(248,113,113,0.6)' }}
-          >
-            Deploy autonomous intelligence across every energy asset
-          </motion.h1>
-          <p className="mx-auto max-w-2xl text-base text-gray-300 md:text-lg">
-            OAIL.ai fuses aerial, edge, and operational data to deliver a living digital twin of the field. Predictive
-            models, autonomous agents, and safety systems that evolve with every barrel produced.
-          </p>
-        </div>
+        {/* Countdown */}
+        <Countdown />
+      </motion.div>
 
-        <div className="flex flex-col items-center gap-4 md:flex-row md:gap-6">
-          <a
-            href="mailto:contact@oail.ai"
-            className="inline-flex items-center justify-center rounded-full bg-oailRed px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white transition hover:scale-105 hover:bg-oailRed/90"
-          >
-            Schedule a Demo
-          </a>
-          <a
-            href="#stack"
-            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.35em] text-white transition hover:border-white/60 hover:bg-white/10"
-          >
-            Explore the Stack
-          </a>
-        </div>
-
-        <div className="grid w-full gap-4 border-t border-white/10 pt-6 text-left md:grid-cols-3">
-          {[
-            {
-              title: 'Edge Autonomy',
-              description: 'Deploy on-rig decision systems with offline resilience and continuous learning loops.'
-            },
-            {
-              title: 'Operational Clarity',
-              description: 'Unified view of wells, routes, and compliance with predictive alerts hours before impact.'
-            },
-            {
-              title: 'Net-Carbon Intelligence',
-              description: 'Automated leak detection, methane mitigation, and sustainability reporting baked in.'
-            }
-          ].map((item) => (
-            <div key={item.title} className="rounded-2xl border border-white/10 bg-black/60 p-4">
-              <p className="text-xs uppercase tracking-[0.35em] text-oailRed/80">{item.title}</p>
-              <p className="mt-2 text-sm text-gray-300">{item.description}</p>
-            </div>
-          ))}
-        </div>
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-[1px] h-8 bg-gradient-to-b from-oailRed to-transparent" />
+        <span className="font-orbitron text-[8px] tracking-[0.3em] text-gray-600 mt-2">SCROLL</span>
       </motion.div>
     </section>
   )
 }
-

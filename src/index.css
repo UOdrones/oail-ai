@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════
+   OAIL.ai Design System — All Black, All Red
+   ═══════════════════════════════════════════ */
+
 @layer base {
   :root {
     color-scheme: dark;
+    --oail-red: #cc0000;
+    --oail-red-glow: rgba(204, 0, 0, 0.6);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
   }
 
   html {
@@ -14,13 +23,8 @@
   }
 
   body {
-    @apply bg-[#11151c] text-gray-200 antialiased;
-    font-family: 'Space Grotesk', sans-serif;
-    background:
-      radial-gradient(circle at 28% 12%, rgba(220, 38, 38, 0.12), transparent 52%),
-      radial-gradient(circle at 82% 82%, rgba(56, 189, 248, 0.12), transparent 58%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 35%, rgba(0, 0, 0, 0.3)),
-      #1a1f27;
+    @apply bg-black text-gray-200 antialiased;
+    font-family: 'Inter', 'Space Grotesk', sans-serif;
   }
 
   ::selection {
@@ -29,6 +33,34 @@
 }
 
 @layer utilities {
+
+  /* ── Glassmorphism ───────────────────────── */
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    border-radius: 8px;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(204, 0, 0, 0.3);
+    box-shadow: 0 0 30px rgba(204, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_40px_rgba(255, 0, 0, 0.12)];
+  }
+
+  /* ── Grid Patterns ──────────────────────── */
   .bg-grid {
     position: relative;
   }
@@ -37,9 +69,9 @@
     content: '';
     position: absolute;
     inset: -200%;
-    background-color: rgba(17, 20, 27, 0.72);
-    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-color: rgba(0, 0, 0, 0.9);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 88px 88px;
     opacity: 0.3;
     animation: grid-fade 22s linear infinite;
@@ -51,35 +83,95 @@
     position: absolute;
     inset: -150%;
     background-image:
-      radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 3px),
-      radial-gradient(circle, rgba(248, 113, 113, 0.16) 1.8px, transparent 3px),
-      radial-gradient(circle, rgba(56, 189, 248, 0.16) 1.6px, transparent 3px),
-      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 160px 160px, 220px 220px, 260px 260px, 88px 88px, 88px 88px;
-    background-position: 0 0, 20px 60px, 40px 120px, 0 0, 0 0;
-    opacity: 0.35;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.06));
-    animation: grid-fade 26s linear infinite reverse;
+      radial-gradient(circle, rgba(204, 0, 0, 0.1) 2px, transparent 3px),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 160px 160px, 88px 88px, 88px 88px;
+    opacity: 0.3;
     pointer-events: none;
+    animation: grid-fade 26s linear infinite reverse;
   }
 
   .gradient-spot {
     position: absolute;
     filter: blur(140px);
-    opacity: 0.5;
-  }
-
-  .glass-panel {
-    @apply border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_40px_rgba(255,0,0,0.12)];
+    opacity: 0.3;
   }
 
   .gradient-text {
-    background: linear-gradient(90deg, #f87171, #fbbf24, #38bdf8);
+    background: linear-gradient(90deg, #cc0000, #ff4444);
     -webkit-background-clip: text;
     color: transparent;
   }
 
+  /* ── Scan Line Overlay ──────────────────── */
+  .scan-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.15) 2px,
+        rgba(0, 0, 0, 0.15) 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── Particle Grid ──────────────────────── */
+  .particle-grid {
+    background-image: radial-gradient(circle, rgba(204, 0, 0, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ── Circuit Board Pattern ──────────────── */
+  .circuit-bg {
+    background-image:
+      linear-gradient(rgba(204, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(204, 0, 0, 0.05) 1px, transparent 1px),
+      radial-gradient(circle, rgba(204, 0, 0, 0.08) 1px, transparent 1px);
+    background-size: 60px 60px, 60px 60px, 30px 30px;
+  }
+
+  /* ── Glitch Text ────────────────────────── */
+  .glitch-text {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+
+  /* ── Neon Glow ──────────────────────────── */
+  .neon-red {
+    text-shadow:
+      0 0 7px rgba(204, 0, 0, 0.5),
+      0 0 20px rgba(204, 0, 0, 0.3),
+      0 0 42px rgba(204, 0, 0, 0.2);
+  }
+
+  /* ── Section Divider ────────────────────── */
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(204, 0, 0, 0.4), transparent);
+  }
+
+  /* ── Countdown Digits ───────────────────── */
+  .countdown-digit {
+    font-variant-numeric: tabular-nums;
+    background: rgba(204, 0, 0, 0.08);
+    border: 1px solid rgba(204, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(204, 0, 0, 0.15), inset 0 0 20px rgba(204, 0, 0, 0.05);
+  }
+
+  /* ── Redacted Text ──────────────────────── */
+  .redacted-text {
+    background: linear-gradient(90deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.1));
+    color: rgba(204, 0, 0, 0.7);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Orbitron', monospace;
+  }
+
+  /* ── Circuit Background Component ───────── */
   .circuit-line {
     animation: signal-dash 5s linear infinite;
   }
@@ -89,16 +181,44 @@
   }
 
   .shooting-spark {
-    filter: drop-shadow(0 0 16px rgba(248, 113, 113, 0.6));
+    filter: drop-shadow(0 0 16px rgba(204, 0, 0, 0.6));
     animation: spark-glow 14s ease-in-out infinite;
     opacity: 0.7;
   }
+
+  /* ── Radial Gradient ────────────────────── */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
 }
+
+/* ── Custom Scrollbar ─────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(204, 0, 0, 0.4);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(204, 0, 0, 0.7);
+}
+
+/* ═══════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════ */
 
 @keyframes grid-fade {
   from {
     transform: translate3d(0, 0, 0);
   }
+
   to {
     transform: translate3d(0, 80px, 0);
   }
@@ -108,20 +228,23 @@
   from {
     stroke-dashoffset: 0;
   }
+
   to {
     stroke-dashoffset: -280;
   }
 }
 
 @keyframes node-pulse {
+
   0%,
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 16px rgba(248, 113, 113, 0.55));
+    filter: drop-shadow(0 0 16px rgba(204, 0, 0, 0.55));
   }
+
   50% {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 26px rgba(56, 189, 248, 0.75));
+    filter: drop-shadow(0 0 26px rgba(204, 0, 0, 0.75));
   }
 }
 
@@ -130,15 +253,42 @@
     opacity: 0;
     transform: scale(0.9);
   }
+
   12% {
     opacity: 0.95;
     transform: scale(1);
   }
+
   70% {
     opacity: 0.8;
   }
+
   100% {
     opacity: 0;
     transform: scale(1.05);
+  }
+}
+
+@keyframes glitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
   }
 }

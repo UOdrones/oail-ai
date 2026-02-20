@@ -52,7 +52,7 @@ const credentials = [
 
 export default function TeamCred() {
     return (
-        <section className="relative py-24 md:py-32 px-6 bg-obsidian circuit-bg" data-nosnippet>
+        <section id="team" className="relative py-24 md:py-32 px-6 bg-black circuit-bg" data-nosnippet>
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <motion.div

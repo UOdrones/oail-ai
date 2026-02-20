@@ -26,36 +26,35 @@ export default function CircuitBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       <svg
-        className="h-full w-full opacity-55"
+        className="h-full w-full opacity-30"
         viewBox="0 0 1500 900"
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
           <linearGradient id="bgCircuitLine" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(248,113,113,0.8)" />
-            <stop offset="50%" stopColor="rgba(251,191,36,0.85)" />
-            <stop offset="100%" stopColor="rgba(56,189,248,0.8)" />
+            <stop offset="0%" stopColor="rgba(204,0,0,0.6)" />
+            <stop offset="50%" stopColor="rgba(204,0,0,0.8)" />
+            <stop offset="100%" stopColor="rgba(204,0,0,0.4)" />
           </linearGradient>
           <radialGradient id="bgNodeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-            <stop offset="45%" stopColor="rgba(248,113,113,0.85)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.08)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.8)" />
+            <stop offset="45%" stopColor="rgba(204,0,0,0.6)" />
+            <stop offset="100%" stopColor="rgba(255,255,255,0.05)" />
           </radialGradient>
           <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.1)" />
-            <stop offset="25%" stopColor="rgba(248,113,113,0.8)" />
-            <stop offset="60%" stopColor="rgba(251,191,36,0.9)" />
-            <stop offset="100%" stopColor="rgba(56,189,248,0.85)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.05)" />
+            <stop offset="40%" stopColor="rgba(204,0,0,0.7)" />
+            <stop offset="100%" stopColor="rgba(255,100,100,0.6)" />
           </linearGradient>
         </defs>
 
         <g
           fill="none"
           stroke="url(#bgCircuitLine)"
-          strokeWidth="2.4"
+          strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="[filter:drop-shadow(0_0_24px_rgba(248,113,113,0.25))]"
+          className="[filter:drop-shadow(0_0_24px_rgba(204,0,0,0.15))]"
         >
           <path className="circuit-line" d="M120 180 Q 360 210 640 180 T 1120 280" strokeDasharray="12 14" />
           <path className="circuit-line" d="M360 260 Q 500 360 760 340 T 1100 620" strokeDasharray="14 12" />
@@ -64,16 +63,16 @@ export default function CircuitBackground() {
           <path className="circuit-line" d="M360 260 Q 520 200 820 340 T 1380 420" strokeDasharray="18 16" />
         </g>
 
-        <g className="[filter:drop-shadow(0_0_28px_rgba(255,255,255,0.22))]">
+        <g className="[filter:drop-shadow(0_0_20px_rgba(204,0,0,0.15))]">
           {nodePoints.map((point) => (
             <circle
               key={`${point.x}-${point.y}`}
               cx={point.x}
               cy={point.y}
-              r="14"
+              r="10"
               fill="url(#bgNodeGlow)"
-              stroke="rgba(255,255,255,0.6)"
-              strokeWidth="1.5"
+              stroke="rgba(204,0,0,0.4)"
+              strokeWidth="1"
               className="circuit-node"
             />
           ))}
@@ -82,7 +81,7 @@ export default function CircuitBackground() {
         <g>
           {motionPaths.map((path, index) => (
             <g key={path} className="mix-blend-screen">
-              <circle r="5" fill="url(#spark)" className="shooting-spark">
+              <circle r="4" fill="url(#spark)" className="shooting-spark">
                 <animateMotion
                   dur={`${12 + index * 3}s`}
                   repeatCount="indefinite"
