@@ -35,8 +35,8 @@ export default function About() {
           <p className="body-text">
             In frac vans, on well pads, managing production, running service companies.
             We didn't read about the problems in this industry. We lived them. Then we paired
-            that field knowledge with an engineering team that built enterprise software for
-            some of the most demanding organizations on earth.
+            that field knowledge with an engineering team that built <span className="redacted">enterprise software</span> for
+            some of the <span className="redacted">most demanding organizations</span> on earth.
           </p>
         </motion.div>
 
@@ -53,8 +53,8 @@ export default function About() {
           </p>
           <p className="body-text">
             It's being built in the field. By people who understand the difference between
-            a production report and a production facility. OAIL.ai is headquartered in the
-            Williston Basin — where the work happens.
+            a production report and a <span className="redacted">production facility</span>. OAIL.ai is headquartered in the
+            <span className="redacted">Williston Basin</span> — where the work happens.
           </p>
         </motion.div>
 

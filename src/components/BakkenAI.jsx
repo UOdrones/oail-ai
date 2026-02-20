@@ -42,7 +42,7 @@ export default function BakkenAI() {
                     viewport={{ once: true }}
                 >
                     From the Permian to the Bakken, Eagle Ford to the Marcellus — we deploy AI where it matters most.
-                    In the field. On the pad. At the wellhead.
+                    In the field. On the pad. At the <span className="redacted">wellhead</span>.
                 </motion.p>
 
                 <div className="divider mt-12" />
@@ -102,7 +102,7 @@ export default function BakkenAI() {
                 >
                     <blockquote className="text-xl md:text-2xl font-semibold leading-relaxed" style={{ color: 'var(--cream)' }}>
                         "While the rest of the industry is still talking about digital transformation,
-                        we're deploying <span style={{ color: 'var(--oail-red)' }}>autonomous intelligence.</span>"
+                        we're deploying <span className="redacted">autonomous intelligence.</span>"
                     </blockquote>
                     <p className="text-[11px] font-medium tracking-[0.15em] uppercase mt-6" style={{ color: 'rgba(241,240,234,0.35)' }}>
                         There's a difference.

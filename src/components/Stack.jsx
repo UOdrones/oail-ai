@@ -5,25 +5,25 @@ const stack = [
     name: 'Unmanned Operator',
     badge: 'Aerial Intelligence',
     summary: 'Autonomous drone fleets with AI-guided flight paths.',
-    desc: 'HD inspection data captured, processed, and actioned — without a pilot. Every well, pipeline, and facility monitored from above at a fraction of traditional cost.',
+    desc: <>HD inspection data captured, processed, and actioned — <span className="redacted">without a pilot</span>. Every well, pipeline, and facility monitored from above at a <span className="redacted">fraction of traditional cost</span>.</>,
   },
   {
     name: 'Operra.ai',
     badge: 'Operations Engine',
     summary: 'Predictive logistics and resource orchestration.',
-    desc: 'Pad scheduling, crew routing, and equipment allocation tuned to each basin. Gets smarter every cycle. Replaces spreadsheets and gut decisions with real-time intelligence.',
+    desc: <>Pad scheduling, crew routing, and <span className="redacted">equipment allocation</span> tuned to each basin. Gets smarter every cycle. Replaces spreadsheets and gut decisions with <span className="redacted">real-time intelligence</span>.</>,
   },
   {
     name: 'ROWi.ai',
     badge: 'ROW Intelligence',
     summary: 'Automated right-of-way compliance.',
-    desc: 'Change detection. Vegetation tracking. Encroachment alerting before violations happen. Automated reporting that stays ahead of regulators.',
+    desc: <>Change detection. Vegetation tracking. <span className="redacted">Encroachment alerting</span> before violations happen. Automated reporting that stays <span className="redacted">ahead of regulators</span>.</>,
   },
   {
     name: 'Edge Operator',
     badge: 'Edge Autonomy',
     summary: 'Offline-resilient inference at the wellsite.',
-    desc: 'Real-time anomaly detection even when connectivity is zero. AI that works where your cell phone doesn\'t. Purpose-built for the most remote operations on earth.',
+    desc: <>Real-time anomaly detection even when connectivity is zero. AI that works where your cell phone doesn't. <span className="redacted">Purpose-built for the most remote operations on earth</span>.</>,
   },
 ]
 

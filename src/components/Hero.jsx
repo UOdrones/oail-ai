@@ -10,31 +10,20 @@ export default function Hero() {
       <motion.img
         src="/OAIL3.png"
         alt="OAIL"
-        className="w-48 md:w-64 lg:w-72 h-auto mb-12"
+        className="w-64 md:w-80 lg:w-96 h-auto mb-16"
         style={{
-          filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.15))',
+          filter: 'drop-shadow(0 30px 80px rgba(0,0,0,0.18))',
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* Massive headline */}
-      <motion.h1
-        className="headline-massive text-center px-6 mb-6"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      >
-        AI FOR<br />
-        <span className="text-[var(--oail-red)]">ENERGY</span>
-      </motion.h1>
-
       {/* Countdown */}
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7, duration: 0.6 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
       >
         <Countdown />
       </motion.div>

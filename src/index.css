@@ -243,6 +243,16 @@
   .section-dark .headline-medium {
     color: var(--cream);
   }
+
+  .section-dark .redacted {
+    background: var(--cream);
+    color: var(--cream);
+  }
+
+  .section-dark .redacted:hover {
+    background: transparent;
+    color: var(--oail-red);
+  }
 }
 
 /* ═══ SCROLLBAR ══════════════════════════════════════════ */
