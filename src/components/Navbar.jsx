@@ -24,7 +24,6 @@ export default function Navbar() {
           src="/OAIL3.png"
           alt="OAIL"
           className="w-8 h-8 object-contain"
-          style={{ clipPath: 'inset(0 0 30% 0)', marginBottom: '-4px' }}
         />
         <span className="text-sm font-bold tracking-[0.15em] text-[var(--ink)]" style={{ fontFamily: 'Inter' }}>
           OAIL

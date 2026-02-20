@@ -13,8 +13,6 @@ export default function Hero() {
         className="w-48 md:w-64 lg:w-72 h-auto mb-12"
         style={{
           filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.15))',
-          clipPath: 'inset(0 0 30% 0)',
-          marginBottom: '20px',
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -31,16 +29,6 @@ export default function Hero() {
         AI FOR<br />
         <span className="text-[var(--oail-red)]">ENERGY</span>
       </motion.h1>
-
-      {/* Tagline */}
-      <motion.p
-        className="text-[var(--ink-secondary)] text-base md:text-lg max-w-md text-center mb-16 px-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      >
-        The most advanced AI platform the energy industry has ever seen. And you're early.
-      </motion.p>
 
       {/* Countdown */}
       <motion.div

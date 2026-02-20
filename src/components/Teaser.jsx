@@ -4,25 +4,25 @@ const intel = [
     {
         codename: 'PROJECT OVERWATCH',
         summary: 'Autonomous aerial intelligence.',
-        desc: 'AI-guided drone fleets that see what humans can\'t. Every well. Every pipeline. Every threat. Captured, processed, and actioned without a pilot.',
+        desc: <>AI-guided drone fleets that see what humans can't. Every well. Every pipeline. Every threat. Captured, processed, and actioned <span className="redacted">without a pilot</span>.</>,
         status: 'Active Development',
     },
     {
         codename: 'PROJECT SENTINEL',
         summary: '24/7 autonomous monitoring.',
-        desc: 'Real-time anomaly detection. Zero-latency response. No human in the loop. Continuous surveillance that never sleeps and never misses.',
+        desc: <>Real-time anomaly detection. <span className="redacted">Zero-latency response</span>. No human in the loop. Continuous surveillance that never sleeps and never misses.</>,
         status: 'Field Testing',
     },
     {
         codename: 'PROJECT NEXUS',
         summary: 'Full-stack data intelligence.',
-        desc: 'Wellhead to boardroom. Sensor to C-suite. One unified nervous system that connects every data point across your entire operation.',
+        desc: <>Wellhead to boardroom. <span className="redacted">Sensor to C-suite</span>. One unified nervous system that connects every data point across your <span className="redacted">entire operation</span>.</>,
         status: 'Architecture Complete',
     },
     {
         codename: 'PROJECT GENESIS',
         summary: 'The platform that replaces the rest.',
-        desc: 'We\'re not iterating on what exists. We\'re replacing it. A ground-up rethinking of how energy operations should work in the age of AI.',
+        desc: <>We're not iterating on what exists. We're <span className="redacted">replacing it</span>. A <span className="redacted">ground-up rethinking</span> of how energy operations should work in the <span className="redacted">age of AI</span>.</>,
         status: 'Classified',
     },
 ]

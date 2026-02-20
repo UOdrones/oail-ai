@@ -193,6 +193,21 @@
     color: var(--cream);
   }
 
+  /* ── Redacted / Classified text ─────────────── */
+  .redacted {
+    background: var(--ink);
+    color: var(--ink);
+    padding: 1px 4px;
+    cursor: default;
+    transition: all 0.4s ease;
+    user-select: none;
+  }
+
+  .redacted:hover {
+    background: transparent;
+    color: var(--oail-red);
+  }
+
   /* ── Red accent dot ───────────────────────────── */
   .red-dot {
     display: inline-block;
