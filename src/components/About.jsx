@@ -35,8 +35,8 @@ export default function About() {
           <p className="body-text">
             In frac vans, on well pads, managing production, running service companies.
             We didn't read about the problems in this industry. We lived them. Then we paired
-            that field knowledge with an engineering team that built <span className="redacted">enterprise software</span> for
-            some of the <span className="redacted">most demanding organizations</span> on earth.
+            that field knowledge with an engineering team that built enterprise software for
+            some of the most demanding organizations on earth.
           </p>
         </motion.div>
 
@@ -53,33 +53,29 @@ export default function About() {
           </p>
           <p className="body-text">
             It's being built in the field. By people who understand the difference between
-            a production report and a <span className="redacted">production facility</span>. OAIL.ai is headquartered in the
-            <span className="redacted">Williston Basin</span> — where the work happens.
+            a production report and a production facility. OAIL.ai is headquartered in the
+            Williston Basin — where the work happens.
           </p>
         </motion.div>
 
         <div className="divider" />
 
-        {/* Capabilities */}
-        <div className="grid md:grid-cols-3 gap-0 mt-0">
-          {[
-            { title: 'Digital Field Twin', desc: 'Live operational picture. Every well, road, and ROW stitched into a unified nervous system.' },
-            { title: 'Autonomous Compliance', desc: 'AI monitors methane, spills, and emissions. Auto-generates regulatory-ready reports before you ask.' },
-            { title: 'Operational Co-Pilots', desc: 'AI that guides crews with predictive logistics, optimized routes, and decisions tuned to each basin.' },
-          ].map((cap, i) => (
-            <motion.div
-              key={cap.title}
-              className="py-10 pr-10"
-              style={{ borderTop: '1px solid var(--divider)' }}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-            >
-              <p className="section-label mb-4">{cap.title}</p>
-              <p className="body-text">{cap.desc}</p>
-            </motion.div>
-          ))}
+        {/* Foundation */}
+        <div className="mt-12 pt-10" style={{ borderTop: '1px solid var(--divider)' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="section-label mb-4">The Platform</p>
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl text-[var(--cream)]">
+              One core intelligence platform designed for 30+ producing basins.
+            </h3>
+            <p className="body-text max-w-2xl text-[var(--ink-secondary)]">
+              While we aren't deployed in every basin yet, our architecture is built to scale across the entire North American footprint. From predictive logistics to autonomous compliance, we are constructing the unified nervous system for industrial energy.
+            </p>
+          </motion.div>
         </div>
 
       </div>

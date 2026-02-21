@@ -2,28 +2,28 @@ import { motion } from 'framer-motion'
 
 const stack = [
   {
-    name: 'Unmanned Operator',
-    badge: 'Aerial Intelligence',
-    summary: 'Autonomous drone fleets with AI-guided flight paths.',
-    desc: <>HD inspection data captured, processed, and actioned — <span className="redacted">without a pilot</span>. Every well, pipeline, and facility monitored from above at a <span className="redacted">fraction of traditional cost</span>.</>,
+    name: <span className="inline-block w-48 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
+    badge: <span className="inline-block w-32 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
+    summary: <div className="space-y-2 w-full"><div className="w-full h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-2/3 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
+    desc: <div className="space-y-2 mt-4 w-full"><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[90%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[75%] h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
   },
   {
-    name: 'Operra.ai',
-    badge: 'Operations Engine',
-    summary: 'Predictive logistics and resource orchestration.',
-    desc: <>Pad scheduling, crew routing, and <span className="redacted">equipment allocation</span> tuned to each basin. Gets smarter every cycle. Replaces spreadsheets and gut decisions with <span className="redacted">real-time intelligence</span>.</>,
+    name: <span className="inline-block w-36 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
+    badge: <span className="inline-block w-40 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
+    summary: <div className="space-y-2 w-full"><div className="w-[90%] h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-1/2 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
+    desc: <div className="space-y-2 mt-4 w-full"><div className="w-[95%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-2/3 h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
   },
   {
-    name: 'ROWi.ai',
-    badge: 'ROW Intelligence',
-    summary: 'Automated right-of-way compliance.',
-    desc: <>Change detection. Vegetation tracking. <span className="redacted">Encroachment alerting</span> before violations happen. Automated reporting that stays <span className="redacted">ahead of regulators</span>.</>,
+    name: <span className="inline-block w-40 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
+    badge: <span className="inline-block w-36 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
+    summary: <div className="space-y-2 w-full"><div className="w-[85%] h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-3/4 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
+    desc: <div className="space-y-2 mt-4 w-full"><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[80%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[60%] h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
   },
   {
-    name: 'Edge Operator',
-    badge: 'Edge Autonomy',
-    summary: 'Offline-resilient inference at the wellsite.',
-    desc: <>Real-time anomaly detection even when connectivity is zero. AI that works where your cell phone doesn't. <span className="redacted">Purpose-built for the most remote operations on earth</span>.</>,
+    name: <span className="inline-block w-52 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
+    badge: <span className="inline-block w-28 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
+    summary: <div className="space-y-2 w-full"><div className="w-full h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-[80%] h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
+    desc: <div className="space-y-2 mt-4 w-full"><div className="w-[90%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-1/2 h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
   },
 ]
 
@@ -62,11 +62,12 @@ export default function Stack() {
         {stack.map((s, i) => (
           <motion.div
             key={s.name}
-            className="grid-row"
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.06, duration: 0.5 }}
+            className="grid-row transform-gpu origin-left"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            whileHover={{ x: 10, backgroundColor: 'rgba(0,0,0,0.01)' }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
               <p className="text-lg md:text-xl font-bold" style={{ letterSpacing: '-0.02em' }}>{s.name}</p>

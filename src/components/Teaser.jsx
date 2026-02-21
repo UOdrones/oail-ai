@@ -4,25 +4,25 @@ const intel = [
     {
         codename: 'PROJECT OVERWATCH',
         summary: 'Autonomous aerial intelligence.',
-        desc: <>AI-guided drone fleets that see what humans can't. Every well. Every pipeline. Every threat. Captured, processed, and actioned <span className="redacted">without a pilot</span>.</>,
+        desc: <>AI-guided fleets <span className="inline-block w-32 h-4 bg-[var(--ink)] align-middle mx-1"></span> <span className="inline-block w-24 h-4 bg-[var(--ink)] align-middle mx-1"></span> Every threat <span className="inline-block w-40 h-4 bg-[var(--ink)] align-middle mx-1"></span>.</>,
         status: 'Active Development',
     },
     {
         codename: 'PROJECT SENTINEL',
         summary: '24/7 autonomous monitoring.',
-        desc: <>Real-time anomaly detection. <span className="redacted">Zero-latency response</span>. No human in the loop. Continuous surveillance that never sleeps and never misses.</>,
+        desc: <>Real-time detection. <span className="inline-block w-48 h-4 bg-[var(--ink)] align-middle mx-1"></span> No human <span className="inline-block w-32 h-4 bg-[var(--ink)] align-middle mx-1"></span> never sleeps.</>,
         status: 'Field Testing',
     },
     {
         codename: 'PROJECT NEXUS',
         summary: 'Full-stack data intelligence.',
-        desc: <>Wellhead to boardroom. <span className="redacted">Sensor to C-suite</span>. One unified nervous system that connects every data point across your <span className="redacted">entire operation</span>.</>,
+        desc: <><span className="inline-block w-24 h-4 bg-[var(--ink)] align-middle mr-1"></span> to boardroom. One unified <span className="inline-block w-32 h-4 bg-[var(--ink)] align-middle mx-1"></span> connects <span className="inline-block w-48 h-4 bg-[var(--ink)] align-middle mx-1"></span>.</>,
         status: 'Architecture Complete',
     },
     {
         codename: 'PROJECT GENESIS',
         summary: 'The platform that replaces the rest.',
-        desc: <>We're not iterating on what exists. We're <span className="redacted">replacing it</span>. A <span className="redacted">ground-up rethinking</span> of how energy operations should work in the <span className="redacted">age of AI</span>.</>,
+        desc: <>We're not iterating. <span className="inline-block w-40 h-4 bg-[var(--ink)] align-middle mx-1"></span> ground-up <span className="inline-block w-32 h-4 bg-[var(--ink)] align-middle mx-1"></span> age of AI.</>,
         status: 'Classified',
     },
 ]

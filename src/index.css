@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════
-   OAIL.ai — INDUSTRIAL LIGHT DESIGN SYSTEM
+   OAIL.ai - INDUSTRIAL LIGHT DESIGN SYSTEM
    Inspired by Anduril Industries
    Warm Cream · Near-Black · OAIL Red (sparingly)
    ═══════════════════════════════════════════════════════════ */
@@ -253,6 +253,16 @@
     background: transparent;
     color: var(--oail-red);
   }
+}
+
+/* ═══ FLOATING MESH CANVAS ═══════════════════════════════ */
+
+.mesh-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 /* ═══ SCROLLBAR ══════════════════════════════════════════ */

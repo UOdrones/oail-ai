@@ -1,25 +1,19 @@
 import { motion } from 'framer-motion'
-
-const plays = [
-    { name: 'Permian', region: 'West Texas / New Mexico', status: 'Primary' },
-    { name: 'Bakken', region: 'North Dakota / Montana', status: 'HQ' },
-    { name: 'Eagle Ford', region: 'South Texas', status: 'Expanding' },
-    { name: 'DJ Basin', region: 'Colorado / Wyoming', status: 'Targeting' },
-    { name: 'Marcellus', region: 'Appalachia', status: 'Targeting' },
-    { name: 'SCOOP/STACK', region: 'Oklahoma', status: 'Targeting' },
-]
+import FloatingMesh from './FloatingMesh'
+import CoverageMap from './CoverageMap'
 
 const stats = [
-    { value: '9.5M+', label: 'US Barrels / Day' },
-    { value: '6', label: 'Major Basins' },
-    { value: '24/7', label: 'Autonomous Ops' },
-    { value: '∞', label: 'Upside' },
+    { value: '100%', label: 'US Asset Coverage' },
+    { value: '30+', label: 'Producing Basins' },
+    { value: '24/7', label: 'Real-time Ingestion' },
+    { value: '0', label: 'Blind Spots' },
 ]
 
 export default function BakkenAI() {
     return (
-        <section id="coverage" className="section-padding section-dark">
-            <div className="max-w-6xl mx-auto">
+        <section id="coverage" className="section-padding section-dark relative overflow-hidden">
+            {/* Removed FloatingMesh per user request to get rid of white background */}
+            <div className="max-w-6xl mx-auto relative" style={{ zIndex: 1 }}>
 
                 {/* Header */}
                 <motion.div
@@ -30,44 +24,24 @@ export default function BakkenAI() {
                 >
                     <p className="section-label mb-8" style={{ color: 'rgba(241,240,234,0.5)' }}>Coverage</p>
                     <h2 className="headline-large">
-                        Every major play.<br />
-                        One intelligence platform.
+                        Total US Coverage.<br />
+                        30+ Plays. One intelligence platform.
                     </h2>
                 </motion.div>
 
                 <motion.p
-                    className="body-text max-w-xl mt-8 mb-4"
+                    className="body-text max-w-[650px] mt-8 mb-4 text-[var(--ink-secondary)] leading-relaxed"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                 >
-                    From the Permian to the Bakken, Eagle Ford to the Marcellus — we deploy AI where it matters most.
-                    In the field. On the pad. At the <span className="redacted">wellhead</span>.
+                    From the offshore platforms of the Gulf of America to the high-density pads of the Permian and the remote frontiers of the Alaska North Slope - we ingest and structure operational reality across the entire domestic footprint.
                 </motion.p>
 
-                <div className="divider mt-12" />
-
-                {/* Basin Rows */}
-                {plays.map((play, i) => (
-                    <motion.div
-                        key={i}
-                        className="grid-row"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.04, duration: 0.4 }}
-                    >
-                        <p className="text-2xl md:text-3xl font-bold" style={{ letterSpacing: '-0.02em' }}>
-                            {play.name}
-                        </p>
-                        <p style={{ color: 'rgba(241,240,234,0.6)' }} className="text-sm md:text-base">
-                            {play.region}
-                        </p>
-                        <p className="text-[11px] font-semibold tracking-[0.15em] uppercase" style={{ color: play.status === 'HQ' ? 'var(--oail-red)' : 'rgba(241,240,234,0.4)' }}>
-                            {play.status}
-                        </p>
-                    </motion.div>
-                ))}
+                {/* Coverage Map */}
+                <div className="mt-12 w-full">
+                    <CoverageMap />
+                </div>
 
                 {/* Stats row */}
                 <div className="divider mt-4" />
@@ -102,7 +76,7 @@ export default function BakkenAI() {
                 >
                     <blockquote className="text-xl md:text-2xl font-semibold leading-relaxed" style={{ color: 'var(--cream)' }}>
                         "While the rest of the industry is still talking about digital transformation,
-                        we're deploying <span className="redacted">autonomous intelligence.</span>"
+                        we're deploying autonomous intelligence."
                     </blockquote>
                     <p className="text-[11px] font-medium tracking-[0.15em] uppercase mt-6" style={{ color: 'rgba(241,240,234,0.35)' }}>
                         There's a difference.

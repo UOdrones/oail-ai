@@ -7,7 +7,7 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-20 items-start">
 
-          {/* Left — CTA */}
+          {/* Left - CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -19,15 +19,18 @@ export default function Contact() {
             </h2>
             <p className="body-text max-w-md mb-10">
               We're selectively partnering with operators, investors, and forward-thinkers
-              who want to be first — not second.
+              who want to be first - not second.
             </p>
 
-            <a
+            <motion.a
               href="mailto:contact@oail.ai"
-              className="btn-industrial-outline"
+              className="btn-industrial-outline inline-block"
+              whileHover={{ scale: 1.05, backgroundColor: 'var(--ink)', color: 'var(--cream)' }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
               Request Early Access <span className="text-lg">↗</span>
-            </a>
+            </motion.a>
 
             <p className="body-text mt-6 text-sm">
               or email directly:{' '}
@@ -37,7 +40,7 @@ export default function Contact() {
             </p>
           </motion.div>
 
-          {/* Right — Details */}
+          {/* Right - Details */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="h-px w-full mb-8" style={{ background: 'rgba(241,240,234,0.08)' }} />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] tracking-[0.1em]" style={{ color: 'rgba(241,240,234,0.3)' }}>
-            © 2024 OAIL.AI — ALL RIGHTS RESERVED
+            © 2026 OAIL.AI - ALL RIGHTS RESERVED
           </p>
           <p className="text-[11px] tracking-[0.1em]" style={{ color: 'rgba(241,240,234,0.3)' }}>
             Intelligence · Autonomy · Energy

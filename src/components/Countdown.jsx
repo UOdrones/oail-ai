@@ -24,14 +24,14 @@ export default function Countdown() {
 
     return (
         <div className="text-center">
-            <p className="section-label text-[var(--ink-tertiary)] mb-6" style={{ fontSize: '10px', letterSpacing: '0.2em' }}>
+            <p className="font-semibold text-[var(--cream)] mb-6 uppercase" style={{ fontSize: '13px', letterSpacing: '0.2em' }}>
                 Launching In
             </p>
             <div className="flex items-center gap-3 md:gap-5">
                 {units.map((u, i) => (
                     <div key={u.label} className="flex items-center gap-3 md:gap-5">
                         <div className="text-center">
-                            <span className="block text-3xl md:text-5xl font-black text-[var(--ink)] tabular-nums" style={{ letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>
+                            <span className="block text-3xl md:text-5xl font-black text-[var(--cream)] tabular-nums" style={{ letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>
                                 {String(u.value).padStart(2, '0')}
                             </span>
                             <span className="block text-[9px] md:text-[10px] font-semibold tracking-[0.2em] uppercase text-[var(--ink-tertiary)] mt-2">
@@ -39,12 +39,12 @@ export default function Countdown() {
                             </span>
                         </div>
                         {i < 3 && (
-                            <span className="text-xl md:text-2xl font-light text-[var(--ink-tertiary)]">:</span>
+                            <span className="text-xl md:text-2xl font-light text-[var(--cream)]">:</span>
                         )}
                     </div>
                 ))}
             </div>
-            <p className="text-[10px] text-[var(--ink-tertiary)] mt-6 tracking-wider uppercase font-medium">
+            <p className="text-xs md:text-sm text-[var(--cream)] mt-6 tracking-wider uppercase font-semibold">
                 May 18, 2026 · 12:00 PM CT
             </p>
         </div>
