@@ -29,7 +29,7 @@ const stack = [
     name: 'Edge Operator',
     badge: 'Edge Autonomy',
     summary: <>Offline-resilient <R n={16} /> at the wellsite.</>,
-    desc: <>Real-time anomaly detection even <R n={18} /> zero. AI that works where your <R n={14} /> doesn't. <R n={32} /> operations on earth.</>,
+    desc: <>Real-time <R n={17} /> even <R n={18} /> zero. AI that works where your <R n={14} /> doesn't. <R n={32} /> operations on earth.</>,
   },
 ]
 
