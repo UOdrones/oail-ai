@@ -69,7 +69,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <p className="section-label mb-4">The Platform</p>
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl text-[var(--cream)]">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl text-[var(--ink)]">
               One core intelligence platform designed for 30+ producing basins.
             </h3>
             <p className="body-text max-w-2xl text-[var(--ink-secondary)]">
