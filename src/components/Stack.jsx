@@ -1,29 +1,35 @@
 import { motion } from 'framer-motion'
 
+const R = ({ n }) => (
+  <span className="bg-[var(--ink)] text-[var(--ink)] select-none leading-none inline-block mx-[2px]">
+    {'█'.repeat(n)}
+  </span>
+)
+
 const stack = [
   {
-    name: <span className="inline-block w-48 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
-    badge: <span className="inline-block w-32 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
-    summary: <div className="space-y-2 w-full"><div className="w-full h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-2/3 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
-    desc: <div className="space-y-2 mt-4 w-full"><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[90%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[75%] h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
+    name: 'Unmanned Operator',
+    badge: 'Aerial Intelligence',
+    summary: 'Autonomous drone fleets with AI-guided flight paths.',
+    desc: <>HD inspection data <R n={12} /> actioned - without a pilot. Every well, pipeline, and <R n={8} /> from above <R n={14} />.</>,
   },
   {
-    name: <span className="inline-block w-36 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
-    badge: <span className="inline-block w-40 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
-    summary: <div className="space-y-2 w-full"><div className="w-[90%] h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-1/2 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
-    desc: <div className="space-y-2 mt-4 w-full"><div className="w-[95%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-2/3 h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
+    name: 'Operra.ai',
+    badge: 'Operations Engine',
+    summary: 'Predictive logistics and resource orchestration.',
+    desc: <>Pad scheduling, crew routing, and <R n={14} /> tuned to each basin. Gets smarter <R n={22} /> Replaces spreadsheets <R n={20} /> real-time intelligence.</>,
   },
   {
-    name: <span className="inline-block w-40 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
-    badge: <span className="inline-block w-36 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
-    summary: <div className="space-y-2 w-full"><div className="w-[85%] h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-3/4 h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
-    desc: <div className="space-y-2 mt-4 w-full"><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[80%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-[60%] h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
+    name: 'ROWi.ai',
+    badge: 'ROW Intelligence',
+    summary: 'Automated right-of-way compliance.',
+    desc: <>Change detection. Vegetation tracking. <R n={24} /> before violations happen. Automated reporting <R n={16} /> of regulators.</>,
   },
   {
-    name: <span className="inline-block w-52 h-8 bg-[var(--ink-secondary)] mb-1"></span>,
-    badge: <span className="inline-block w-28 h-4 bg-[var(--ink-secondary)] opacity-80"></span>,
-    summary: <div className="space-y-2 w-full"><div className="w-full h-5 bg-[var(--ink-secondary)] opacity-60"></div><div className="w-[80%] h-5 bg-[var(--ink-secondary)] opacity-60"></div></div>,
-    desc: <div className="space-y-2 mt-4 w-full"><div className="w-[90%] h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-full h-3 bg-[var(--ink-secondary)] opacity-40"></div><div className="w-1/2 h-3 bg-[var(--ink-secondary)] opacity-40"></div></div>,
+    name: 'Edge Operator',
+    badge: 'Edge Autonomy',
+    summary: 'Offline-resilient inference at the wellsite.',
+    desc: <>Real-time anomaly detection even <R n={14} /> zero. AI that works where your cell phone doesn't. <R n={26} /> operations on earth.</>,
   },
 ]
 
@@ -53,7 +59,7 @@ export default function Stack() {
           viewport={{ once: true }}
         >
           Each product is deployable solo. Together, they operate as an adaptive energy intelligence backbone
-          — scaling from aerial capture to edge autonomy.
+          - scaling from aerial capture to edge autonomy.
         </motion.p>
 
         <div className="divider mt-12" />
