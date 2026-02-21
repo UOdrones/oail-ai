@@ -12,17 +12,19 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ background: 'var(--cream)' }}>
-      <Navbar />
-      <Hero />
-      <Teaser />
-      <About />
-      <TeamCred />
-      <BakkenAI />
-      <Stack />
-      <Vision />
-      <Contact />
-      <Footer />
+    <div className="w-full overflow-hidden bg-[var(--cream)] relative">
+      <div className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <Teaser />
+        <About />
+        <TeamCred />
+        <BakkenAI />
+        <Stack />
+        <Vision />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   )
 }

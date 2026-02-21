@@ -424,7 +424,7 @@ const basins = [
     }
 ];
 
-const oailLogoCoords = [-70.0, 30.0]; // Offshore Atlantic
+const oailLogoCoords = [-88.0, 26.0]; // Safe Gulf coordinates so it doesn't blow out mobile SVG bounds
 
 const maxProd = Math.max(...basins.map(b => b.prod));
 const getScale = (prod) => {
@@ -514,11 +514,11 @@ export default function CoverageMap() {
                 <Marker coordinates={oailLogoCoords}>
                     <image
                         href="/OAIL3_nobg.png"
-                        x="-100"
-                        y="-100"
-                        width="200"
-                        height="200"
-                        style={{ filter: 'drop-shadow(0 0 35px rgba(229, 57, 53, 0.9)) drop-shadow(0 0 15px rgba(229, 57, 53, 0.5))' }}
+                        x="-30"
+                        y="-30"
+                        width="60"
+                        height="60"
+                        style={{ filter: 'drop-shadow(0 0 15px rgba(229, 57, 53, 0.9)) drop-shadow(0 0 5px rgba(229, 57, 53, 0.5))' }}
                     />
                 </Marker>
             </ComposableMap>
