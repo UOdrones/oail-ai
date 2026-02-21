@@ -83,10 +83,10 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <p
-              className="text-lg md:text-2xl lg:text-3xl font-bold tracking-[0.4em] text-[var(--cream)] opacity-90 uppercase leading-relaxed"
+              className="text-sm md:text-2xl lg:text-3xl font-bold tracking-[0.2em] md:tracking-[0.4em] text-[var(--cream)] opacity-90 uppercase leading-relaxed text-center"
               style={{ textShadow: '0 0 20px rgba(229,57,53,0.9), 0 0 40px rgba(229,57,53,0.6)' }}
             >
-              Artificial Intelligence<br className="md:hidden" />
+              Artificial<br className="sm:hidden" /> Intelligence<br className="md:hidden" />
               <span className="hidden md:inline"> </span>For Energy
             </p>
           </motion.div>

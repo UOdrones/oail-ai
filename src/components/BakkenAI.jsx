@@ -49,8 +49,7 @@ export default function BakkenAI() {
                     {stats.map((stat, i) => (
                         <motion.div
                             key={i}
-                            className="py-10"
-                            style={{ borderRight: i < 3 ? '1px solid rgba(241,240,234,0.08)' : 'none' }}
+                            className={`py-8 md:py-10 border-[rgba(241,240,234,0.08)] ${i % 2 === 0 ? 'border-r md:border-r-0' : ''} ${i < 2 ? 'border-b md:border-b-0' : ''} ${i < 3 ? 'md:border-r' : ''}`}
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

@@ -529,8 +529,8 @@ export default function CoverageMap() {
                     <motion.div
                         className="basin-tooltip fixed border border-[rgba(241,240,234,0.1)] rounded-sm min-w-[240px] z-50 pointer-events-none"
                         style={{
-                            left: mousePos.x + 20,
-                            top: mousePos.y + 20,
+                            left: typeof window !== 'undefined' ? Math.min(mousePos.x + 20, window.innerWidth - 280) : mousePos.x + 20,
+                            top: typeof window !== 'undefined' ? Math.min(mousePos.y + 20, window.innerHeight - 300) : mousePos.y + 20,
                             backgroundColor: 'rgba(5, 5, 5, 0.95)',
                             backdropFilter: 'blur(10px)',
                             boxShadow: `0 20px 40px rgba(0,0,0,0.8), 0 0 25px ${activeBasin.color}40`,
