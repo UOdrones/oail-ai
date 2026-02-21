@@ -10,26 +10,26 @@ const stack = [
   {
     name: 'Unmanned Operator',
     badge: 'Aerial Intelligence',
-    summary: 'Autonomous drone fleets with AI-guided flight paths.',
-    desc: <>HD inspection data <R n={12} /> actioned - without a pilot. Every well, pipeline, and <R n={8} /> from above <R n={14} />.</>,
+    summary: <><R n={10} /> drone fleets with <R n={16} /> flight paths.</>,
+    desc: <><R n={10} /> inspection data <R n={16} /> actioned - without a <R n={6} />. Every <R n={10} />, <R n={12} />, and <R n={14} /> from above <R n={18} />.</>,
   },
   {
     name: 'Operra.ai',
     badge: 'Operations Engine',
-    summary: 'Predictive logistics and resource orchestration.',
-    desc: <>Pad scheduling, crew routing, and <R n={14} /> tuned to each basin. Gets smarter <R n={22} /> Replaces spreadsheets <R n={20} /> real-time intelligence.</>,
+    summary: <>Predictive logistics and <R n={18} /> orchestration.</>,
+    desc: <><R n={12} /> scheduling, crew routing, and <R n={20} /> tuned to each <R n={8} />. Gets smarter <R n={24} /> Replaces <R n={16} /> with <R n={12} /> real-time intelligence.</>,
   },
   {
     name: 'ROWi.ai',
     badge: 'ROW Intelligence',
-    summary: 'Automated right-of-way compliance.',
-    desc: <>Change detection. Vegetation tracking. <R n={24} /> before violations happen. Automated reporting <R n={16} /> of regulators.</>,
+    summary: <>Automated right-of-way <R n={14} /> compliance.</>,
+    desc: <><R n={14} /> detection. Vegetation tracking. <R n={28} /> before violations happen. Automated reporting <R n={20} /> of <R n={10} />.</>,
   },
   {
     name: 'Edge Operator',
     badge: 'Edge Autonomy',
-    summary: 'Offline-resilient inference at the wellsite.',
-    desc: <>Real-time anomaly detection even <R n={14} /> zero. AI that works where your cell phone doesn't. <R n={26} /> operations on earth.</>,
+    summary: <>Offline-resilient <R n={16} /> at the wellsite.</>,
+    desc: <>Real-time anomaly detection even <R n={18} /> zero. AI that works where your <R n={14} /> doesn't. <R n={32} /> operations on earth.</>,
   },
 ]
 
@@ -76,7 +76,7 @@ export default function Stack() {
             transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div>
-              <p className="text-lg md:text-xl font-bold" style={{ letterSpacing: '-0.02em' }}>{s.name}</p>
+              <p className="text-lg md:text-xl font-bold text-[var(--ink)]" style={{ letterSpacing: '-0.02em' }}>{s.name}</p>
               <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[var(--oail-red)] mt-2">{s.badge}</p>
             </div>
             <p className="summary-text">{s.summary}</p>
